@@ -23,7 +23,7 @@
   </h3>
 </div>
 
-<div align="center" style="font-size:50%">
+<div align="center" style="height: 100px; width: 50%;">
   <img src="https://hugoextrat.com/images/cryptoshadow.jpg"/>
 </div>
 
