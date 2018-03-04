@@ -1,0 +1,39 @@
+name: crypto_shadow
+description: CryptoCurrency Tracker for Android &amp; iOS
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://www.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - assets/img/btc.png
+    - assets/img/eth.png
+    - assets/img/gnt.png
+
+  fonts:
+      - family: Poppins
+        fonts:
+          - asset: assets/fonts/Poppins-Regular.ttf
+            weight: 500
+          - asset: assets/fonts/Poppins-SemiBold.ttf
+            weight: 600
