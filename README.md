@@ -1,2 +1,2 @@
 # CryptoShadow
-CrypoCurrency Tracker for Android &amp; iOS
+CryptoCurrency Tracker for Android &amp; iOS
