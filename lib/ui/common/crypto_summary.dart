@@ -41,7 +41,7 @@ class CryptoSummary extends StatelessWidget {
             children: <Widget>[
               new Image.asset(image, height: 12.0),
               new Container(width: 8.0),
-              new Text(crypto.last24, style: Theme.TextStyles.smallTextStyle),
+              //new Text(crypto.percentChange24h, style: Theme.TextStyles.smallTextStyle),
             ]
         ),
       );
@@ -57,7 +57,7 @@ class CryptoSummary extends StatelessWidget {
           new Container(height: 4.0),
           new Text(crypto.name, style: Theme.TextStyles.titleTextStyle),
           new Container(height: 1.0),
-          new Text(crypto.currentPrice, style: Theme.TextStyles.commonTextStyle),
+          //new Text(crypto.currentPriceUSD, style: Theme.TextStyles.commonTextStyle),
           new Separator(),
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +65,7 @@ class CryptoSummary extends StatelessWidget {
               new Expanded(
                   flex: horizontal ? 1 : 0,
                   child: _cryptoValue(
-                      value: "% 24h: "+crypto.last24,
+                      value: "% 24h: ",//+crypto.percentChange24h,
                       image: 'assets/img/ic_distance.png')
 
               )
