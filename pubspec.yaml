@@ -4,7 +4,8 @@ description: CryptoCurrency Tracker for Android &amp; iOS
 dependencies:
   flutter:
     sdk: flutter
-
+  intl: 0.15.2
+  path_provider: "^0.2.1+1"
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.0

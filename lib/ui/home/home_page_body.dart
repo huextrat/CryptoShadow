@@ -1,12 +1,102 @@
-import 'package:crypto_shadow/model/cryptos.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:crypto_shadow/model/cryptos.dart';
 import 'package:crypto_shadow/ui/common/crypto_summary.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:crypto_shadow/Theme.dart' as Theme;
+import 'package:http/http.dart' as http;
 
+class HomePageBody extends StatefulWidget {
+  @override
+  HomePageBodyState createState() => new HomePageBodyState();
+}
 
+class HomePageBodyState extends State<HomePageBody> {
 
-class HomePageBody extends StatelessWidget {
+  List data;
+  bool isLoading = true;
+
+  Future<bool> getDataFromAPI() async {
+    var response = await http.get(
+      Uri.encodeFull("https://api.coinmarketcap.com/v1/ticker/?convert=EUR&limit=100"),
+      headers: {
+        "Accept": "application/json"
+      },
+    );
+
+    this.setState(() {
+      data = JSON.decode(response.body);
+      isLoading = false;
+    });
+    String content = response.body;
+    (await getLocalFile()).writeAsString('$content');
+    print(data);
+
+    return true;
+  }
+
+  Future<File> getLocalFile() async {
+    // get the path to the document directory.
+    String dir = (await getApplicationDocumentsDirectory()).path;
+    return new File('$dir/coin_list.txt');
+  }
+
+  Future<bool> getDataFromLocal() async {
+    try {
+      File file = await getLocalFile();
+      // read the variable as a string from the file.
+      String contents = await file.readAsString();
+
+      this.setState(() {
+        data = JSON.decode(contents);
+        isLoading = false;
+      });
+      print(data);
+
+      return true;
+    } on FileSystemException {
+      return false;
+    }
+  }
+
+  Future<bool> getData() async {
+    if(!(await getDataFromLocal())) {
+      await getDataFromAPI();
+    }
+    return true;
+  }
+
+  @override
+  void initState() {
+    getData();
+    getDataFromAPI();
+  }
+
+  Crypto getCoin(int index) {
+    return new Crypto(
+      data[index]["id"],
+      data[index]["name"],
+      data[index]["symbol"],
+      data[index]["rank"],
+      data[index]["price_usd"],
+      data[index]["price_btc"],
+      data[index]["24h_volume_usd"],
+      data[index]["market_cap_usd"],
+      data[index]["available_supply"],
+      data[index]["total_supply"],
+      data[index]["percent_change_1h"],
+      data[index]["percent_change_24h"],
+      data[index]["percent_change_7d"],
+      data[index]["last_updated"],
+      data[index]["price_eur"],
+      data[index]["24h_volume_eur"],
+      data[index]["market_cap_eur"],
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +122,8 @@ class HomePageBody extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 24.0),
               sliver: new SliverList(
                 delegate: new SliverChildBuilderDelegate(
-                      (context, index) => new CryptoSummary(cryptos[index]),
-                  childCount: cryptos.length,
+                      (context, index) => new CryptoSummary(getCoin(index)),
+                  childCount: 300,
                 ),
               ),
             ),

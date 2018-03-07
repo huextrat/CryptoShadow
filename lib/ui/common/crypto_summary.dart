@@ -25,7 +25,7 @@ class CryptoSummary extends StatelessWidget {
       child: new Hero(
         tag: "crypto-hero-${crypto.id}",
         child: new Image(
-          image: new AssetImage(crypto.image),
+          image: new AssetImage("assets/img/"+crypto.symbol.toLowerCase()+".png"),
           height: 80.0,
           width: 80.0,
         ),

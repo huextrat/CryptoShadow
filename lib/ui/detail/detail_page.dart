@@ -54,7 +54,7 @@ class DetailPage extends StatelessWidget {
                   style: Theme.TextStyles.headerTextStyle,),
                 new Separator(),
                 new Text(
-                    crypto.description, style: Theme.TextStyles.commonTextStyleWhite),
+                    crypto.name, style: Theme.TextStyles.commonTextStyleWhite),
               ],
             ),
           ),

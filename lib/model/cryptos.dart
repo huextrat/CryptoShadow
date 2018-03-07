@@ -1,67 +1,44 @@
-import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 class Crypto {
-  final String id;
-  final String name;
-  /**
-  final String symbol;
-  final String rank;
-  final String currentPriceUSD;
-  final String currentPriceBTC;
-  final String percentChange1h;
-  final String percentChange24h;
-  final String percentChange7d;
-   **/
-  final String description;
+  String id;
+  String name;
+  String symbol;
+  String rank;
+  String priceUsd;
+  String priceBtc;
+  String volumeUsd;
+  String marketCapUsd;
+  String availableSupply;
+  String totalSupply;
+  String percentChange1h;
+  String percentChange24h;
+  String percentChange7d;
+  String lastUpdated;
+  String priceEur;
+  String volumeEur;
+  String marketCapEur;
 
-  final String image;
+  Crypto(this.id, this.name, this.symbol, this.rank, this.priceUsd, this.priceBtc,
+      this.volumeUsd, this.marketCapUsd, this.availableSupply,
+      this.totalSupply, this.percentChange1h, this.percentChange24h,
+      this.percentChange7d, this.lastUpdated, this.priceEur, this.volumeEur, this.marketCapEur) {
+    this.priceUsd = double.parse(this.priceUsd).toStringAsFixed(4);
+    this.volumeUsd = double.parse(this.volumeUsd) >= 1000000 ? (double.parse(this.volumeUsd)/1000000).toStringAsFixed(2) : this.volumeUsd;
+    this.percentChange1h = double.parse(this.percentChange1h).toStringAsFixed(1);
+    this.percentChange24h = double.parse(this.percentChange24h).toStringAsFixed(1);
+    this.percentChange7d = double.parse(this.percentChange7d).toStringAsFixed(1);
+    this.priceEur = double.parse(this.priceEur).toStringAsFixed(4);
+    this.volumeEur = double.parse(this.volumeEur) >= 1000000 ? (double.parse(this.volumeEur)/1000000).toStringAsFixed(2) : this.volumeEur;
+  }
 
+  String formatCurrency(String amount) {
+    final format = new NumberFormat("#,##0.0000", "en_US");
+    return format.format(double.parse(amount));
+  }
 
-  const Crypto({this.id, this.name, this.description, this.image});//, this.symbol, this.rank, this.currentPriceBTC, this.percentChange1h, this.percentChange7d, this.currentPriceUSD, this.percentChange24h,
-  //this.description, this.image});
-
-  static Future<List<Object>> getPrices({List<String> filter = const [], String currency = 'USD'}) async {
-    String endpoint = 'https://api.coinmarketcap.com/v1/ticker/?convert=$currency';
-    List<Object> list = JSON.decode((await http.get(endpoint)).body);
-    if (filter.length == 0) {
-      return list;
-    } else {
-      return list
-          //.where((Object coin) => filter.indexOf(coin['symbol']) >= 0)
-          .toList();
-    }
+  String formatVolume(String amount) {
+    final format = new NumberFormat("#,##0.00", "en_US");
+    return format.format(double.parse(amount));
   }
 }
-
-List<Crypto> cryptos = [
-
-    const Crypto(
-    id: "1",
-    name: "Bitcoin",
-    /**
-    currentPriceUSD: "\$11 160,90",
-    percentChange24h: "-2,72%",**/
-    description: "Bitcoin",
-    image: "assets/img/btc.png",
-  ),
-  const Crypto(
-    id: "2",
-    name: "Ethereum",
-/**
-    currentPriceUSD: "\$854,44",
-    percentChange24h: "-0,74%",**/
-    description: "Ethereum",
-    image: "assets/img/eth.png",
-  ),
-  const Crypto(
-    id: "3",
-    name: "Golem",
-/**
-    currentPriceUSD: "\$0,425266",
-    percentChange24h: "+0,34%",**/
-    description: "Golem",
-    image: "assets/img/gnt.png",
-  ),
-];
