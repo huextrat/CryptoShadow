@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:crypto_shadow/model/cryptos.dart';
 import 'package:crypto_shadow/ui/common/crypto_summary.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:crypto_shadow/Theme.dart' as Theme;
@@ -96,12 +97,14 @@ class HomePageBodyState extends State<HomePageBody> {
       data[index]["market_cap_eur"],
     );
   }
-
+  
+  refresh() async {
+    await getDataFromAPI();
+  }
 
   @override
   Widget build(BuildContext context) {
     return new Expanded(
-
       child: new Container(
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
@@ -113,25 +116,26 @@ class HomePageBodyState extends State<HomePageBody> {
           ),
         ),
 
-        //color: new Color(0xFF736AB7),
-        child: new CustomScrollView(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: false,
-          slivers: <Widget>[
-            new SliverPadding(
+        child: new RefreshIndicator(
+          onRefresh: refresh,
+          child: new CustomScrollView(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: false,
+            slivers: <Widget>[
+              new SliverPadding(
 
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
+                padding: const EdgeInsets.symmetric(vertical: 5.0),
 
-              sliver: new SliverList(
-                delegate: new SliverChildBuilderDelegate(
-                      (context, index) => new CryptoSummary(getCoin(index)),
-                  childCount: 100,
+                sliver: new SliverList(
+                  delegate: new SliverChildBuilderDelegate(
+                        (context, index) => new CryptoSummary(getCoin(index)),
+                    childCount: data==null ? 100 : data.length,
+                  ),
                 ),
               ),
-            ),
+            ],
 
-          ],
-
+          ),
         ),
       ),
     );
