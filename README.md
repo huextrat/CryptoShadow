@@ -1,4 +1,5 @@
-<h1 align="center">CryptoShadow <img src="https://hugoextrat.com/images/ic_launcher.png"/></h1>
+<img src="https://hugoextrat.com/images/ic_launcher.png"/>
+<h1 align="center">CryptoShadow </h1>
 
 <div align="center">
   <strong>CryptoCurrency Tracker for Android & iOS</strong>
