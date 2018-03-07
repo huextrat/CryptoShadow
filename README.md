@@ -1,4 +1,4 @@
-<img src="https://hugoextrat.com/images/ic_launcher.png"/>
+<img align="center" src="https://hugoextrat.com/images/ic_launcher.png"/>
 <h1 align="center">CryptoShadow </h1>
 
 <div align="center">
