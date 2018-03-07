@@ -55,10 +55,90 @@ class CryptoSummary extends StatelessWidget {
         crossAxisAlignment: horizontal ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: <Widget>[
           new Container(height: 4.0),
-          new Text(crypto.name, style: Theme.TextStyles.titleTextStyle),
+          new Text(crypto.rank+". "+crypto.name+ " (" + crypto.symbol + ")", style: Theme.TextStyles.titleTextStyle),
           new Container(height: 1.0),
-          //new Text(crypto.currentPriceUSD, style: Theme.TextStyles.commonTextStyle),
+
+          /**
+          new Padding(
+            padding: new EdgeInsets.only(
+              left: 1.0,
+            ),
+            child: new Row(
+              textBaseline: TextBaseline.alphabetic,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              children: <Widget>[
+                new Text(
+                  "\$"+crypto.formatCurrency(crypto.priceUsd).substring(0, crypto.formatCurrency(crypto.priceUsd).length - 4),
+                  style: Theme.TextStyles.commonTextStyle,
+                ),
+                new Text(
+                  crypto.formatCurrency(crypto.priceUsd).substring(crypto.formatCurrency(crypto.priceUsd).length - 4, crypto.formatCurrency(crypto.priceUsd).length),
+                  style: Theme.TextStyles.commonTextStyle14,
+                ),
+              ],
+            ),
+          ),
+          **/
+          new Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            textBaseline: TextBaseline.alphabetic,
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            children: <Widget>[
+              new Expanded(
+                flex: horizontal ? 1 : 0,
+
+                child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      new Text(
+                        "\$"+crypto.formatCurrency(crypto.priceUsd).substring(0, crypto.formatCurrency(crypto.priceUsd).length - 4),
+                        style: Theme.TextStyles.commonTextStyle,
+                      ),
+                      new Text(
+                        crypto.formatCurrency(crypto.priceUsd).substring(crypto.formatCurrency(crypto.priceUsd).length - 4, crypto.formatCurrency(crypto.priceUsd).length),
+                        style: Theme.TextStyles.commonTextStyle14,
+                      ),
+                    ],
+                ),
+              ),
+            ],
+          ),
+
           new Separator(),
+
+          new Padding(
+            padding: new EdgeInsets.only(left: 1.0),
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Expanded(
+                flex: horizontal ? 1 : 0,
+                child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      new Text("1h: ", style: Theme.TextStyles.smallTextStyle),
+                      new Icon(
+                        getIcon(double.parse(crypto.percentChange1h).isNegative),
+                        color: double.parse(crypto.percentChange1h).isNegative ? Colors.red : Colors.green,
+                        size: 20.0,
+                      ),
+                      new Text(
+                        (double.parse(crypto.percentChange1h).isNegative ? "" : "+") + crypto.percentChange1h + "%",
+                        style: new TextStyle(
+                          fontSize: 14.0,
+                          color: double.parse(crypto.percentChange1h).isNegative ? Colors.red : Colors.green,
+                        ),
+                      ),
+
+                  ],
+                ),
+                ),
+              ],
+            ),
+          ),
+          /**
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -70,10 +150,11 @@ class CryptoSummary extends StatelessWidget {
 
               )
             ],
-          ),
+          ),**/
         ],
       ),
     );
+
 
 
     final cryptoCard = new Container(
@@ -121,4 +202,10 @@ class CryptoSummary extends StatelessWidget {
         )
     );
   }
+}
+
+IconData getIcon(bool isNegative) {
+  IconData icon;
+  isNegative ? icon = Icons.arrow_drop_down : icon = Icons.arrow_drop_up;
+  return icon;
 }

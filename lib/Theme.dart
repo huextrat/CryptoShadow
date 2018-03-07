@@ -37,10 +37,16 @@ class TextStyles {
   );
 
   static final smallTextStyle = commonTextStyle.copyWith(
-    fontSize: 14.0,
+    fontSize: 12.0,
   );
 
   static final commonTextStyle = baseTextStyle.copyWith(
+      color: Colors.colorBlack2,
+      fontSize: 17.0,
+      fontWeight: FontWeight.w400
+  );
+
+  static final commonTextStyle14 = baseTextStyle.copyWith(
       color: Colors.colorBlack2,
       fontSize: 16.0,
       fontWeight: FontWeight.w400
@@ -48,7 +54,7 @@ class TextStyles {
 
   static final commonTextStyleWhite = baseTextStyle.copyWith(
       color: Colors.colorWhite,
-      fontSize: 16.0,
+      fontSize: 17.0,
       fontWeight: FontWeight.w400
   );
 
