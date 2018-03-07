@@ -97,7 +97,7 @@ class HomePageBodyState extends State<HomePageBody> {
       data[index]["market_cap_eur"],
     );
   }
-  
+
   refresh() async {
     await getDataFromAPI();
   }

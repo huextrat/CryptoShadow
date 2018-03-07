@@ -119,6 +119,21 @@ class CryptoSummary extends StatelessWidget {
                         ),
                       ),
 
+
+                      new Text("   24h: ", style: Theme.TextStyles.smallTextStyle),
+                      new Icon(
+                        getIcon(double.parse(crypto.percentChange24h).isNegative),
+                        color: double.parse(crypto.percentChange24h).isNegative ? Colors.red : Colors.green,
+                        size: 20.0,
+                      ),
+                      new Text(
+                        (double.parse(crypto.percentChange24h).isNegative ? "" : "+") + crypto.percentChange24h + "%",
+                        style: new TextStyle(
+                          fontSize: 14.0,
+                          color: double.parse(crypto.percentChange24h).isNegative ? Colors.red : Colors.green,
+                        ),
+                      ),
+
                   ],
                 ),
                 ),
