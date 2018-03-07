@@ -24,7 +24,7 @@
 </div>
 
 <div align="center">
-  <img src="https://hugoextrat.com/images/cryptoshadow_android.jpg" width="240" height="450"/>
+  <img src="https://hugoextrat.com/images/cryptoshadow_android.jpg" width="300" height="532"/>
 </div>
 
 ### Getting Started
