@@ -24,7 +24,7 @@
 </div>
 
 <div align="center">
-  <img src="https://hugoextrat.com/images/cryptoshadow.jpg"/>
+  <img src="https://hugoextrat.com/images/cryptoshadow.jg"/>
 </div>
 
 ## Getting Started
