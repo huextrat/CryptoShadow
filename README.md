@@ -1,7 +1,7 @@
 <h1 align="center">CryptoShadow <img src="https://hugoextrat.com/images/ic_launcher.png" alt="Flutter" width="50" height="50" /></h1>
 
 <div align="center">
-  <a href='https://play.google.com/store/apps/details?id=com.huextrat.cryptoshadow'><img style="width: 400px" alt='Disponible sur Google        Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+  <a href='https://play.google.com/store/apps/details?id=com.huextrat.cryptoshadow'><img style="width: 200px" alt='Disponible sur Google        Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
 </div>
 <div align="center">
   <strong>CryptoCurrency Tracker for Android & iOS</strong>
