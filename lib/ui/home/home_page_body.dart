@@ -119,11 +119,13 @@ class HomePageBodyState extends State<HomePageBody> {
           shrinkWrap: false,
           slivers: <Widget>[
             new SliverPadding(
-              padding: const EdgeInsets.symmetric(vertical: 24.0),
+
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+
               sliver: new SliverList(
                 delegate: new SliverChildBuilderDelegate(
                       (context, index) => new CryptoSummary(getCoin(index)),
-                  childCount: 300,
+                  childCount: 100,
                 ),
               ),
             ),

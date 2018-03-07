@@ -19,9 +19,10 @@ class CryptoSummary extends StatelessWidget {
 
     final cryptoThumbnail = new Container(
       margin: new EdgeInsets.symmetric(
-          vertical: 24.0
+          vertical: 23.0
       ),
       alignment: horizontal ? FractionalOffset.centerLeft : FractionalOffset.center,
+
       child: new Hero(
         tag: "crypto-hero-${crypto.id}",
         child: new Image(
@@ -29,27 +30,13 @@ class CryptoSummary extends StatelessWidget {
           height: 80.0,
           width: 80.0,
         ),
+
       ),
+
     );
 
-
-
-    Widget _cryptoValue({String value, String image}) {
-      return new Container(
-        child: new Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              new Image.asset(image, height: 12.0),
-              new Container(width: 8.0),
-              //new Text(crypto.percentChange24h, style: Theme.TextStyles.smallTextStyle),
-            ]
-        ),
-      );
-    }
-
-
     final cryptoCardContent = new Container(
-      margin: new EdgeInsets.fromLTRB(horizontal ? 70.0 : 16.0, horizontal ? 16.0 : 42.0, 16.0, 16.0),
+      margin: new EdgeInsets.fromLTRB(horizontal ? 55.0 : 16.0, horizontal ? 15.0 : 45.0, 16.0, 16.0),
       constraints: new BoxConstraints.expand(),
       child: new Column(
         crossAxisAlignment: horizontal ? CrossAxisAlignment.start : CrossAxisAlignment.center,
@@ -159,7 +146,7 @@ class CryptoSummary extends StatelessWidget {
 
     final cryptoCard = new Container(
       child: cryptoCardContent,
-      height: horizontal ? 128.0 : 154.0,
+      height: horizontal ? 128.0 : 160.0,
       margin: horizontal
           ? new EdgeInsets.only(left: 46.0)
           : new EdgeInsets.only(top: 60.0),
