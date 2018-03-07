@@ -1,7 +1,3 @@
-<div align="center">
-  <img src="https://hugoextrat.com/images/ic_launcher.png"/>
-</div>
-
 <h1 align="center">CryptoShadow <img src="https://hugoextrat.com/images/ic_launcher.png" alt="Flutter" width="50" height="50" /></h1>
 
 <div align="center">
