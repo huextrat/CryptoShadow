@@ -2,7 +2,7 @@
   <img src="https://hugoextrat.com/images/ic_launcher.png"/>
 </div>
 
-<h1 align="center">CryptoShadow </h1>
+<h1 align="center">CryptoShadow <img src="https://hugoextrat.com/images/ic_launcher.png" alt="Flutter" width="30" height="30" /></h1>
 
 <div align="center">
   <strong>CryptoCurrency Tracker for Android & iOS</strong>
