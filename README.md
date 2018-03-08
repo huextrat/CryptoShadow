@@ -30,6 +30,19 @@
   <img src="https://hugoextrat.com/images/cryptoshadow_android.jpg" width="300" height="532"/>
 </div>
 
+### TODO
+
+- [x] ~~CoinMarketCap API~~
+- [x] ~~CustomListView + GradientAppBar~~
+- [x] ~~Custom card~~
+- [ ] Settings Page
+- [ ] Select fav crypto
+- [ ] Edit default currency
+- [ ] ...
+
+
+
+
 ### Getting Started
 
 1. [Install Flutter](https://flutter.io/setup/)
