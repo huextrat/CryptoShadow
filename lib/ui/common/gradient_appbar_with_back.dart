@@ -42,16 +42,7 @@ class GradientAppBarWithBack extends StatelessWidget {
                 ),
               ],
           ),
-          /**
-          child: new Center(
-            child: new Text(title, style:const TextStyle(
-                color: Colors.white,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600,
-                fontSize: 36.0
-            ),
-            ),
-          ),**/
+
           decoration: new BoxDecoration(
             gradient: new LinearGradient(
                 colors: [Theme.Colors.appBarGradientStart, Theme.Colors.appBarGradientEnd],
@@ -65,32 +56,5 @@ class GradientAppBarWithBack extends StatelessWidget {
       ],
 
     );
-
-    /*
-    return new Container(
-      padding: new EdgeInsets.only(top: statusBarHeight),
-      height: statusBarHeight + barHeight,
-      child: new Center(
-        child: new Text(title,
-          style:const TextStyle(
-              color: Colors.white,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-              fontSize: 36.0
-          ),
-        ),
-      ),
-
-      decoration: new BoxDecoration(
-        gradient: new LinearGradient(
-            colors: [Theme.Colors.appBarGradientStart, Theme.Colors.appBarGradientEnd],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(1.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp
-        ),
-      ),
-    );
-    */
   }
 }

@@ -30,9 +30,7 @@ class CryptoSummary extends StatelessWidget {
           height: 80.0,
           width: 80.0,
         ),
-
       ),
-
     );
 
     final cryptoCardContent = new Container(
@@ -97,7 +95,6 @@ class CryptoSummary extends StatelessWidget {
                       ),
                     ),
 
-
                     new Text("  24h:", style: Theme.TextStyles.smallTextStyle),
                     new Icon(
                       getIcon(double.parse(crypto.percentChange24h).isNegative),
@@ -130,81 +127,6 @@ class CryptoSummary extends StatelessWidget {
               ),
             ],
           ),
-
-          /**
-          new Padding(
-            padding: new EdgeInsets.only(left: 1.0),
-            child: new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Expanded(
-                flex: horizontal ? 1 : 0,
-                child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-
-                      new Text("1h: ", style: Theme.TextStyles.smallTextStyle),
-                      new Icon(
-                        getIcon(double.parse(crypto.percentChange1h).isNegative),
-                        color: double.parse(crypto.percentChange1h).isNegative ? Colors.red : Colors.green,
-                        size: 20.0,
-                      ),
-                      new Text(
-                        (double.parse(crypto.percentChange1h).isNegative ? "" : "+") + crypto.percentChange1h + "%",
-                        style: new TextStyle(
-                          fontSize: 14.0,
-                          color: double.parse(crypto.percentChange1h).isNegative ? Colors.red : Colors.green,
-                        ),
-                      ),
-
-
-                      new Text("   24h: ", style: Theme.TextStyles.smallTextStyle),
-                      new Icon(
-                        getIcon(double.parse(crypto.percentChange24h).isNegative),
-                        color: double.parse(crypto.percentChange24h).isNegative ? Colors.red : Colors.green,
-                        size: 20.0,
-                      ),
-                      new Text(
-                        (double.parse(crypto.percentChange24h).isNegative ? "" : "+") + crypto.percentChange24h + "%",
-                        style: new TextStyle(
-                          fontSize: 14.0,
-                          color: double.parse(crypto.percentChange24h).isNegative ? Colors.red : Colors.green,
-                        ),
-                      ),
-
-                      new Text("   7d: ", style: Theme.TextStyles.smallTextStyle),
-                      new Icon(
-                        getIcon(double.parse(crypto.percentChange7d).isNegative),
-                        color: double.parse(crypto.percentChange7d).isNegative ? Colors.red : Colors.green,
-                        size: 20.0,
-                      ),
-                      new Text(
-                        (double.parse(crypto.percentChange7d).isNegative ? "" : "+") + crypto.percentChange7d + "%",
-                        style: new TextStyle(
-                          fontSize: 14.0,
-                          color: double.parse(crypto.percentChange7d).isNegative ? Colors.red : Colors.green,
-                        ),
-                      ),
-                  ],
-                ),
-                ),
-              ],
-            ),
-          ),**/
-          /**
-          new Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Expanded(
-                  flex: horizontal ? 1 : 0,
-                  child: _cryptoValue(
-                      value: "% 24h: ",//+crypto.percentChange24h,
-                      image: 'assets/img/ic_distance.png')
-
-              )
-            ],
-          ),**/
         ],
       ),
     );
@@ -236,7 +158,7 @@ class CryptoSummary extends StatelessWidget {
         onTap: horizontal
             ? () => Navigator.of(context).push(
           new PageRouteBuilder(
-            pageBuilder: (_, __, ___) => new DetailPage(crypto),
+            pageBuilder: (_, __, ___) => new DetailPage(crypto: crypto),
             transitionsBuilder: (context, animation, secondaryAnimation, child) =>
             new FadeTransition(opacity: animation, child: child),
           ),
