@@ -27,13 +27,17 @@
 </div>
 
 <div align="center">
+  <p>Design inspired by:<a href="https://github.com/sergiandreplace/planets-flutter">planets-flutter</a></p>
+</div>
+
+<div align="center">
   <img src="https://hugoextrat.com/images/cryptoshadow.jpg" width="300" height="532"/>
 </div>
 
 ### TODO
 
 - [x] ~~CoinMarketCap API~~
-- [x] ~~CustomListView + GradientAppBar~~
+- [x] ~~CustomListView + Design~~
 - [x] ~~Custom card~~
 - [ ] Settings Page
 - [ ] Select fav crypto
