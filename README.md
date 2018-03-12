@@ -1,6 +1,12 @@
 <h1 align="center">CryptoShadow <img src="https://hugoextrat.com/images/ic_launcher.png" alt="Flutter" width="50" height="50" /></h1>
 
 <div align="center">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT" />
+  </a>
+</div>
+
+<div align="center">
   <p>Design inspired by: <a href="https://github.com/sergiandreplace/planets-flutter">planets-flutter</a></p>
 </div>
 
@@ -12,12 +18,6 @@
 </div>
 <div align="center">
   Created with <a href="https://flutter.io/">flutter.io</a>
-</div>
-
-<div align="center">
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT" />
-  </a>
 </div>
 
 <br />
