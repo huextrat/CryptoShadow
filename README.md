@@ -31,7 +31,7 @@
 </div>
 
 <div align="center">
-  <img src="https://hugoextrat.com/images/cryptoshadow.jpg" width="300" height="532"/>
+  <img src="https://hugoextrat.com/images/cryptoshadow_github.jpg" />
 </div>
 
 ### TODO
