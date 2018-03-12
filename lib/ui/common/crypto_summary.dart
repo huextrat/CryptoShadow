@@ -45,27 +45,6 @@ class CryptoSummary extends StatelessWidget {
           new Text(crypto.rank+". "+crypto.name+ " (" + crypto.symbol + ")", style: Theme.TextStyles.titleTextStyle),
           new Container(height: 1.0),
 
-          /**
-          new Padding(
-            padding: new EdgeInsets.only(
-              left: 1.0,
-            ),
-            child: new Row(
-              textBaseline: TextBaseline.alphabetic,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              children: <Widget>[
-                new Text(
-                  "\$"+crypto.formatCurrency(crypto.priceUsd).substring(0, crypto.formatCurrency(crypto.priceUsd).length - 4),
-                  style: Theme.TextStyles.commonTextStyle,
-                ),
-                new Text(
-                  crypto.formatCurrency(crypto.priceUsd).substring(crypto.formatCurrency(crypto.priceUsd).length - 4, crypto.formatCurrency(crypto.priceUsd).length),
-                  style: Theme.TextStyles.commonTextStyle14,
-                ),
-              ],
-            ),
-          ),
-          **/
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
             textBaseline: TextBaseline.alphabetic,
