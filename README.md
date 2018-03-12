@@ -35,7 +35,7 @@
 - [x] ~~CoinMarketCap API~~
 - [x] ~~CustomListView + Design~~
 - [x] ~~Custom card~~
-- [ ] Chart
+- [x] Chart
 - [ ] Settings Page
 - [ ] Select fav crypto
 - [ ] Edit default currency
