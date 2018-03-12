@@ -5,8 +5,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: 0.15.2
-  path_provider: "^0.2.1+1"
-
+  path_provider: '^0.2.1+1'
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.0
@@ -28,6 +27,8 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/FIAT.json
+    - assets/CryptoShadow_logo.png
     - assets/img/act.png
     - assets/img/ada.png
     - assets/img/adx.png

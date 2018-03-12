@@ -7,6 +7,7 @@ class Colors {
   static const Color appBarTitle = const Color(0xFFFFFFFF);
   static const Color appBarIconColor = const Color(0xFFFFFFFF);
   static const Color appBarDetailBackground = const Color(0x00FFFFFF);
+
   static const Color appBarGradientStart = const Color(0xFFee0979);
   static const Color appBarGradientEnd = const Color(0xFFff6a00);
 
@@ -19,6 +20,8 @@ class Colors {
   static const Color colorWhite = const Color(0xFFFFFFFF);
   static const Color colorBlack = const Color(0xFF000000);
   static const Color colorBlack2 = const Color(0x99000000);
+
+  static const Color colorBlue = const Color(0xFF2196F3);
 }
 
 class Dimens {

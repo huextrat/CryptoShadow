@@ -29,6 +29,7 @@ class DetailPage extends StatelessWidget {
           children: <Widget>[
             _getContent(),
             _getToolbar(context),
+
           ],
         ),
       ),
@@ -37,10 +38,12 @@ class DetailPage extends StatelessWidget {
 
 
   Container _getContent() {
-    final _overviewTitle = "General".toUpperCase();
+    final _chart = "Chart".toUpperCase();
+    final _overviewVolume = "Market Cap".toUpperCase();
+
     return new Container(
       child: new ListView(
-        padding: new EdgeInsets.fromLTRB(0.0, 72.0, 0.0, 32.0),
+        padding: new EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 32.0),
         children: <Widget>[
           new CryptoSummary(crypto,
             horizontal: false,
@@ -50,14 +53,30 @@ class DetailPage extends StatelessWidget {
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                /*
                 new Text(_overviewTitle,
                   style: Theme.TextStyles.headerTextStyle,),
                 new Separator(),
                 new Text(
                     crypto.name, style: Theme.TextStyles.commonTextStyleWhite),
+                */
+                new Text(_overviewVolume,
+                  style: Theme.TextStyles.headerTextStyle,),
+                new Separator(),
+                new Text(
+                    "\$"+crypto.formatCurrency(crypto.marketCapUsd).substring(0, crypto.formatCurrency(crypto.marketCapUsd).length - 3)+"\n\n", style: Theme.TextStyles.commonTextStyleWhite),
+
+
+                new Text(_chart,
+                  style: Theme.TextStyles.headerTextStyle,),
+                new Separator(),
+
+                new Text(
+                    "FEATURE INC", style: Theme.TextStyles.commonTextStyleWhite),
               ],
             ),
           ),
+
         ],
       ),
     );

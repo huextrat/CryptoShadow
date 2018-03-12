@@ -23,6 +23,7 @@ class Crypto {
       this.volumeUsd, this.marketCapUsd, this.availableSupply,
       this.totalSupply, this.percentChange1h, this.percentChange24h,
       this.percentChange7d, this.lastUpdated, this.priceEur, this.volumeEur, this.marketCapEur) {
+
     this.priceUsd = double.parse(this.priceUsd).toStringAsFixed(4);
     this.volumeUsd = double.parse(this.volumeUsd) >= 1000000 ? (double.parse(this.volumeUsd)/1000000).toStringAsFixed(2) : this.volumeUsd;
     this.percentChange1h = double.parse(this.percentChange1h).toStringAsFixed(1);

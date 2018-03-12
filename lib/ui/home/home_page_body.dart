@@ -105,6 +105,7 @@ class HomePageBodyState extends State<HomePageBody> {
   @override
   Widget build(BuildContext context) {
     return new Expanded(
+
       child: new Container(
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
