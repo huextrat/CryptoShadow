@@ -31,6 +31,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/loader.gif
     - assets/FIAT.json
     - assets/CryptoShadow_logo.png
     - assets/img/act.png

@@ -131,8 +131,6 @@ class CryptoSummary extends StatelessWidget {
       ),
     );
 
-
-
     final cryptoCard = new Container(
       child: cryptoCardContent,
       height: horizontal ? 128.0 : 160.0,

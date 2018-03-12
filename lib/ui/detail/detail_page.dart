@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:crypto_shadow/model/cryptos.dart';
 import 'package:crypto_shadow/model/historical_data.dart';
 import 'package:crypto_shadow/ui/common/crypto_summary.dart';
@@ -19,7 +21,7 @@ class DetailPageState extends State<DetailPage> {
 
   @override
   void initState() {
-
+    super.initState();
   }
 
   HistoricalData getPrice(int index) {
@@ -60,6 +62,7 @@ class DetailPageState extends State<DetailPage> {
     );
   }
 
+
   Container _getContent() {
     final _chart24h = "Chart (24h)".toUpperCase();
     final _chart7d = "Chart (7d)".toUpperCase();
@@ -86,28 +89,41 @@ class DetailPageState extends State<DetailPage> {
                 new Text(
                     "\$"+widget.crypto.formatCurrency(widget.crypto.marketCapUsd).substring(0, widget.crypto.formatCurrency(widget.crypto.marketCapUsd).length - 3)+"\n\n", style: Theme.TextStyles.commonTextStyleWhite),
 
+
                 new Text(_chart24h,
                   style: Theme.TextStyles.headerTextStyle,),
                 new Separator(),
                 new Center(
-                  child: new Image(image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/24h/png"), fit: BoxFit.fill, height: 180.0),
-
+                  child: new FadeInImage(
+                      placeholder: new AssetImage("assets/loader.gif"),
+                      image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/24h/png"), fit: BoxFit.fill, height: 180.0,
+                      fadeOutDuration: new Duration(milliseconds: 200),
+                      fadeOutCurve: Curves.decelerate,
+                  ),
                 ),
 
                 new Text(_chart7d,
                   style: Theme.TextStyles.headerTextStyle,),
                 new Separator(),
                 new Center(
-                  child: new Image(image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/7d/png"), fit: BoxFit.fill, height: 180.0),
-
+                  child: new FadeInImage(
+                    placeholder: new AssetImage("assets/loader.gif"),
+                    image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/7d/png"), fit: BoxFit.fill, height: 180.0,
+                    fadeOutDuration: new Duration(milliseconds: 200),
+                    fadeOutCurve: Curves.decelerate,
+                  ),
                 ),
 
                 new Text(_chart1y,
                   style: Theme.TextStyles.headerTextStyle,),
                 new Separator(),
                 new Center(
-                  child: new Image(image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/1y/png"), fit: BoxFit.fill, height: 180.0),
-
+                  child: new FadeInImage(
+                    placeholder: new AssetImage("assets/loader.gif"),
+                    image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/1y/png"), fit: BoxFit.fill, height: 180.0,
+                    fadeOutDuration: new Duration(milliseconds: 200),
+                    fadeOutCurve: Curves.decelerate,
+                  ),
                 ),
               ],
             ),
