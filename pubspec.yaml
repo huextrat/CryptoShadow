@@ -34,7 +34,6 @@ flutter:
 
   assets:
     - assets/loading.gif
-    - assets/FIAT.json
     - assets/CryptoShadow_logo.png
     - assets/img/act.png
     - assets/img/ada.png

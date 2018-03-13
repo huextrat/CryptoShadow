@@ -4,7 +4,7 @@ import 'package:crypto_shadow/Theme.dart' as Theme;
 class GradientAppBar extends StatelessWidget {
 
   final String title;
-  final double barHeight = 66.0;
+  final double barHeight = 55.0;
 
   GradientAppBar(this.title);
 

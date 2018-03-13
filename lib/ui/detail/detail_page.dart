@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:crypto_shadow/model/cryptos.dart';
 import 'package:crypto_shadow/model/historical_data.dart';
-import 'package:crypto_shadow/ui/common/crypto_summary.dart';
+import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
 import 'package:flutter/material.dart';
 import 'package:crypto_shadow/Theme.dart' as Theme;
@@ -22,18 +22,6 @@ class DetailPageState extends State<DetailPage> {
   @override
   void initState() {
     super.initState();
-  }
-
-  HistoricalData getPrice(int index) {
-    return new HistoricalData(
-      data['Data'][index]['time'],
-      data['Data'][index]['close'],
-      data['Data'][index]['high'],
-      data['Data'][index]['low'],
-      data['Data'][index]['open'],
-      data['Data'][index]['volumefrom'],
-      data['Data'][index]['volumeto'],
-    );
   }
 
   @override

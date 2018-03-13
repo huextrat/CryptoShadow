@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto_shadow/model/cryptos.dart';
-import 'package:crypto_shadow/ui/common/crypto_summary.dart';
+import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -34,7 +34,6 @@ class HomePageBodyState extends State<HomePageBody> {
     });
     String content = response.body;
     (await getLocalFile()).writeAsString('$content');
-    print(data);
 
     return true;
   }
@@ -55,7 +54,6 @@ class HomePageBodyState extends State<HomePageBody> {
         data = JSON.decode(contents);
         isLoading = false;
       });
-      print(data);
 
       return true;
     } on FileSystemException {
@@ -124,8 +122,7 @@ class HomePageBodyState extends State<HomePageBody> {
             shrinkWrap: false,
             slivers: <Widget>[
               new SliverPadding(
-
-                padding: const EdgeInsets.symmetric(vertical: 5.0),
+                padding: const EdgeInsets.symmetric(vertical: 1.0),
 
                 sliver: new SliverList(
                   delegate: new SliverChildBuilderDelegate(

@@ -3,6 +3,7 @@ import 'package:crypto_shadow/ui/detail/detail_page.dart';
 import 'package:crypto_shadow/ui/news/news_page.dart';
 import 'package:crypto_shadow/ui/settings/settings_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'home_page_body.dart';
 import 'package:crypto_shadow/Theme.dart' as Theme;
 import 'dart:math' as Math;
@@ -21,7 +22,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _controller = new AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
   }
 
-  static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.add];
+  static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.web];
   @override
   Widget build(BuildContext context) {
 
@@ -82,6 +83,27 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     }
                     else if(index == 2){
                       _controller.reverse();
+                      Navigator.of(context).push(
+                        new PageRouteBuilder(
+
+                          pageBuilder: (_, __, ___) => new WebviewScaffold(
+                            url: "https://www.hugoextrat.com",
+                            appBar: new AppBar(
+
+                              centerTitle: true,
+                              title: new Text("Hugo EXTRAT", style:const TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 36.0),
+                              ),
+                              backgroundColor: Theme.Colors.appBarGradientStart,
+                            ),
+                          ),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+                          new FadeTransition(opacity: animation, child: child),
+                        ),
+                      );
                     }
                   },
                 ),
@@ -96,7 +118,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   return new Transform(
                     transform: new Matrix4.rotationZ(_controller.value * 0.5 * Math.PI),
                     alignment: FractionalOffset.center,
-                    child: new Icon(_controller.isDismissed ? Icons.settings : Icons.close)
+                    child: new Icon(_controller.isDismissed ? Icons.add : Icons.close)
                   );
                 },
             ),

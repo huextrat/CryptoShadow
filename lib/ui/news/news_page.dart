@@ -77,7 +77,8 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
           children: <Widget>[
             new GradientAppBarWithBack("News"),
             new Container(
-              padding: new EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 15.0),
+
+              padding: new EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 0.0),
               child: data == null
                   ? const Center(child: const CircularProgressIndicator())
                   : data["articles"].length != 0
@@ -85,8 +86,22 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
                           itemCount: data == null ? 0 : data["articles"].length,
                           padding: new EdgeInsets.all(8.0),
                           itemBuilder: (BuildContext context, int index) {
-                            return new Card(
-                              elevation: 1.7,
+                            return new Container(
+                              margin:
+                                new EdgeInsets.only(top: 10.0),
+
+                              decoration: new BoxDecoration(
+                                color: new Color(0xFFFFFFFF),
+                                shape: BoxShape.rectangle,
+                                borderRadius: new BorderRadius.circular(30.0),
+                                boxShadow: <BoxShadow>[
+                                  new BoxShadow(
+                                    color: new Color(0xFFee0979),
+                                    blurRadius: 10.0,
+                                    offset: new Offset(0.0, 10.0),
+                                  ),
+                                ],
+                              ),
                               child: new Padding(
                                 padding: new EdgeInsets.all(10.0),
                                 child: new Column(
@@ -216,7 +231,7 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
                               new Icon(Icons.chrome_reader_mode,
                                   color: Colors.grey, size: 60.0),
                               new Text(
-                                "No articles saved",
+                                "No articles",
                                 style: new TextStyle(
                                     fontSize: 24.0, color: Colors.white),
                               ),
