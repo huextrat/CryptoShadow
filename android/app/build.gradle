@@ -30,9 +30,10 @@ android {
         applicationId "com.huextrat.cryptoshadow"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 6
+        versionCode 7
         versionName "1.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     signingConfigs {
@@ -46,7 +47,19 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
+            // TODO: Fix minifyEnabled !!!
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        preDexLibraries true
+        maxProcessCount 8
+        javaMaxHeapSize "4g"
     }
 }
 

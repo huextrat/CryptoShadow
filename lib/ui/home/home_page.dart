@@ -1,5 +1,6 @@
 import 'package:crypto_shadow/ui/common/gradient_appbar.dart';
 import 'package:crypto_shadow/ui/detail/detail_page.dart';
+import 'package:crypto_shadow/ui/news/news_page.dart';
 import 'package:crypto_shadow/ui/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'home_page_body.dart';
@@ -20,7 +21,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _controller = new AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
   }
 
-  static const List<IconData> icons = const [Icons.settings, Icons.add];
+  static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.add];
   @override
   Widget build(BuildContext context) {
 
@@ -70,6 +71,16 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       );
                     }
                     else if(index == 1){
+                      _controller.reverse();
+                      Navigator.of(context).push(
+                        new PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => new NewsPage(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+                          new FadeTransition(opacity: animation, child: child),
+                        ),
+                      );
+                    }
+                    else if(index == 2){
                       _controller.reverse();
                     }
                   },

@@ -95,7 +95,7 @@ class DetailPageState extends State<DetailPage> {
                 new Separator(),
                 new Center(
                   child: new FadeInImage(
-                      placeholder: new AssetImage("assets/loader.gif"),
+                      placeholder: new AssetImage("assets/loading.gif"),
                       image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/24h/png"), fit: BoxFit.fill, height: 180.0,
                       fadeOutDuration: new Duration(milliseconds: 200),
                       fadeOutCurve: Curves.decelerate,
@@ -107,7 +107,7 @@ class DetailPageState extends State<DetailPage> {
                 new Separator(),
                 new Center(
                   child: new FadeInImage(
-                    placeholder: new AssetImage("assets/loader.gif"),
+                    placeholder: new AssetImage("assets/loading.gif"),
                     image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/7d/png"), fit: BoxFit.fill, height: 180.0,
                     fadeOutDuration: new Duration(milliseconds: 200),
                     fadeOutCurve: Curves.decelerate,
@@ -119,7 +119,7 @@ class DetailPageState extends State<DetailPage> {
                 new Separator(),
                 new Center(
                   child: new FadeInImage(
-                    placeholder: new AssetImage("assets/loader.gif"),
+                    placeholder: new AssetImage("assets/loading.gif"),
                     image: new NetworkImage("https://cryptohistory.org/charts/light/"+widget.crypto.symbol+"-usd/1y/png"), fit: BoxFit.fill, height: 180.0,
                     fadeOutDuration: new Duration(milliseconds: 200),
                     fadeOutCurve: Curves.decelerate,
