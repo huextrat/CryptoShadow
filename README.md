@@ -36,6 +36,7 @@
 - [x] ~~CustomListView + Design~~
 - [x] ~~Custom card~~
 - [x] ~~Chart~~
+- [ ] News Page
 - [ ] Settings Page
 - [ ] Select fav crypto
 - [ ] Edit default currency
