@@ -8,6 +8,7 @@ import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:http/http.dart' as http;
+import 'package:share/share.dart';
 import 'package:timeago/timeago.dart';
 
 class NewsPage extends StatefulWidget {
@@ -16,15 +17,45 @@ class NewsPage extends StatefulWidget {
   NewsPageState createState() => new NewsPageState();
 }
 
-class NewsPageState extends State<NewsPage> {
+class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin {
+
   var newsSelection = "crypto-coins-news";
-
   String apiKey = "97ec2e1bd66c4a83bea5a50471589972";
-
   var data;
+  final FlutterWebviewPlugin flutterWebViewPlugin = new FlutterWebviewPlugin();
 
-  final FlutterWebviewPlugin flutterWebviewPlugin = new FlutterWebviewPlugin();
-  final TextEditingController _controller = new TextEditingController();
+  Future getData() async {
+    var response = await http.get(
+        Uri.encodeFull(
+            'https://newsapi.org/v2/everything?sources=' + newsSelection),
+        headers: {
+          "Accept": "application/json",
+          "X-Api-Key": apiKey,
+        });
+    var localData = JSON.decode(response.body);
+    if (localData != null && localData["articles"] != null) {
+      localData["articles"].sort((a, b) =>
+      a["publishedAt"] != null && b["publishedAt"] != null
+          ? b["publishedAt"].compareTo(a["publishedAt"])
+          : null);
+    }
+
+    this.setState(() {
+      data = localData;
+    });
+
+    return "Success!";
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.getData();
+  }
+
+  refresh() async {
+    await getData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,10 +158,28 @@ class NewsPageState extends State<NewsPage> {
                                               ],
                                             ),
                                             onTap: () {
-                                              flutterWebviewPlugin.launch(
-                                                  data["articles"][index]
-                                                      ["url"],
-                                                  fullScreen: false);
+
+                                              Navigator.of(context).push(
+                                                new PageRouteBuilder(
+
+                                                  pageBuilder: (_, __, ___) => new WebviewScaffold(
+                                                    url: data["articles"][index]["url"],
+                                                    appBar: new AppBar(
+
+                                                      centerTitle: true,
+                                                      title: new Text("CryptoShadow", style:const TextStyle(
+                                                          color: Colors.white,
+                                                          fontFamily: 'Poppins',
+                                                          fontWeight: FontWeight.w600,
+                                                          fontSize: 36.0),
+                                                      ),
+                                                      backgroundColor: Theme.Colors.appBarGradientStart,
+                                                    ),
+                                                  ),
+                                                  transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+                                                  new FadeTransition(opacity: animation, child: child),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -181,36 +230,4 @@ class NewsPageState extends State<NewsPage> {
     );
   }
 
-  Future getData() async {
-    var response = await http.get(
-        Uri.encodeFull(
-            'https://newsapi.org/v2/everything?sources=' + newsSelection),
-        headers: {
-          "Accept": "application/json",
-          "X-Api-Key": apiKey,
-        });
-    var localData = JSON.decode(response.body);
-    if (localData != null && localData["articles"] != null) {
-      localData["articles"].sort((a, b) =>
-          a["publishedAt"] != null && b["publishedAt"] != null
-              ? b["publishedAt"].compareTo(a["publishedAt"])
-              : null);
-    }
-
-    this.setState(() {
-      data = localData;
-    });
-
-    return "Success!";
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    this.getData();
-  }
-
-  refresh() async {
-    await getData();
-  }
 }
