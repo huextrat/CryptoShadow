@@ -1,14 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:crypto_shadow/Theme.dart' as Theme;
-import 'package:crypto_shadow/model/fiat.dart';
 import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:http/http.dart' as http;
-import 'package:share/share.dart';
 import 'package:timeago/timeago.dart';
 
 class NewsPage extends StatefulWidget {

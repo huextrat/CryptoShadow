@@ -63,6 +63,7 @@ class SettingsPageState extends State<SettingsPage> {
         child: new Stack(
           children: <Widget>[
             new GradientAppBarWithBack("Settings"),
+
             new Container(
               margin: new EdgeInsets.fromLTRB(10.0, 100.0, 10.0, 300.0),
 
@@ -78,7 +79,6 @@ class SettingsPageState extends State<SettingsPage> {
                   ),
                 ],
               ),
-
             ),
           ],
         ),
