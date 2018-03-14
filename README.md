@@ -40,6 +40,7 @@
 - [ ] Settings Page
 - [ ] Select fav crypto
 - [ ] Edit default currency
+- [ ] Notifications
 - [ ] ...
 
 
