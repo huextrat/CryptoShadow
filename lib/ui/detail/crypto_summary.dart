@@ -13,7 +13,6 @@ class CryptoSummary extends StatelessWidget {
 
   CryptoSummary.vertical(this.crypto): horizontal = false;
 
-
   @override
   Widget build(BuildContext context) {
 
@@ -25,8 +24,11 @@ class CryptoSummary extends StatelessWidget {
 
       child: new Hero(
         tag: "crypto-hero-${crypto.id}",
-        child: new Image(
+        child: new FadeInImage(
+          placeholder: new AssetImage(""),
           image: new AssetImage("assets/img/"+crypto.symbol.toLowerCase()+".png"),
+          fadeOutDuration: new Duration(milliseconds: 200),
+          fadeOutCurve: Curves.decelerate,
           height: 80.0,
           width: 80.0,
         ),
@@ -155,6 +157,7 @@ class CryptoSummary extends StatelessWidget {
     return new GestureDetector(
         onTap: horizontal
             ? () => Navigator.of(context).push(
+
           new PageRouteBuilder(
             pageBuilder: (_, __, ___) => new DetailPage(crypto: crypto),
             transitionsBuilder: (context, animation, secondaryAnimation, child) =>

@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
+  //https://cryptodonate.io/101296421651150539388
   AnimationController _controller;
 
   @override
@@ -22,7 +23,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _controller = new AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
   }
 
-  static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.web];
+  static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.payment];
   @override
   Widget build(BuildContext context) {
 
@@ -87,7 +88,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         new PageRouteBuilder(
 
                           pageBuilder: (_, __, ___) => new WebviewScaffold(
-                            url: "https://www.hugoextrat.com",
+                            url: "https://cryptodonate.io/101296421651150539388",
                             appBar: new AppBar(
 
                               centerTitle: true,

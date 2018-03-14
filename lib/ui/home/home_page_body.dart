@@ -127,7 +127,7 @@ class HomePageBodyState extends State<HomePageBody> {
                 sliver: new SliverList(
                   delegate: new SliverChildBuilderDelegate(
                         (context, index) => new CryptoSummary(getCoin(index)),
-                    childCount: data==null ? 100 : data.length,
+                    childCount: data==null ? 200 : data.length,
                   ),
                 ),
               ),
