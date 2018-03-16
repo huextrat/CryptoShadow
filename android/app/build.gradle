@@ -32,8 +32,8 @@ android {
         applicationId "com.huextrat.cryptoshadow"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 11
-        versionName "1.7.1"
+        versionCode 12
+        versionName "1.7.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }

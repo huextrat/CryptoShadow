@@ -86,72 +86,97 @@ class DetailPageState extends State<DetailPage> {
                   style: Theme.TextStyles.headerTextStyle,),
                 new Separator(),
 
-                new Stack(
-                    alignment: const Alignment(1.0, 0.5),
-                    children: <Widget>[
-                      new TextField(
-                        controller: _controllerCrypto,
-                        maxLines: 1,
-                        keyboardType: TextInputType.number,
-                        style: Theme.TextStyles.commonTextStyleWhite,
-                        onChanged: (newValue) {
-                          setState(() {
-                            cryptoStr = newValue.trim();
-                            if(usdStr.length==0){
-                              _controllerUSD.text = " ";
-                            }
-                            _controllerUSD.text = (double.parse(cryptoStr)*double.parse(widget.crypto.priceUsd)).toString();
-                          });
-                        },
-                        decoration: new InputDecoration(
-                          hintStyle: Theme.TextStyles.commonTextStyleWhite,
-                          labelStyle: Theme.TextStyles.commonTextStyleWhite,
-                          labelText: widget.crypto.symbol,
-                        ),
-                        textAlign: TextAlign.center,
+                new Container(
+                  margin: new EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+
+                  decoration: new BoxDecoration(
+                    color: new Color(0xFFFFFFFF),
+                    shape: BoxShape.rectangle,
+                    borderRadius: new BorderRadius.circular(10.0),
+                    boxShadow: <BoxShadow>[
+                      new BoxShadow(
+                        color: new Color(0xFFee0979),
+                        blurRadius: 10.0,
+                        offset: new Offset(0.0, 10.0),
                       ),
-                      new FlatButton(
-                          onPressed: () {
-                            _controllerCrypto.clear();
-                            _controllerUSD.clear();
-                          },
-                          child: new Icon(Icons.clear, color: Theme.Colors.colorWhite,))
-                    ]
+                    ],
+                  ),
+
+                  child: new Column(children: <Widget>[
+                    new Stack(
+                        alignment: const Alignment(1.0, 0.5),
+                        children: <Widget>[
+                          new TextField(
+                            controller: _controllerCrypto,
+                            maxLines: 1,
+                            keyboardType: TextInputType.number,
+                            style: Theme.TextStyles.commonTextStyle,
+                            onChanged: (newValue) {
+                              setState(() {
+                                cryptoStr = newValue.trim();
+                                if(usdStr.length==0){
+                                  _controllerUSD.text = " ";
+                                }
+                                _controllerUSD.text = (double.parse(cryptoStr)*double.parse(widget.crypto.priceUsd)).toString();
+                              });
+                            },
+                            decoration: new InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 10.0),
+                              hintStyle: Theme.TextStyles.commonTextStyle,
+                              labelStyle: Theme.TextStyles.commonTextStyle,
+                              labelText: widget.crypto.symbol,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          new FlatButton(
+                              onPressed: () {
+                                _controllerCrypto.clear();
+                                _controllerUSD.clear();
+                              },
+                              child: new Icon(Icons.clear, color: Theme.Colors.colorBlack,))
+                        ]
+                    ),
+                    new Separator(),
+                    new Stack(
+                        alignment: const Alignment(1.0, 0.5),
+                        children: <Widget>[
+                          new TextField(
+                            controller: _controllerUSD,
+                            maxLines: 1,
+                            keyboardType: TextInputType.number,
+                            style: Theme.TextStyles.commonTextStyle,
+
+                            onChanged: (newValue) {
+                              setState(() {
+                                usdStr = newValue.trim();
+                                if(cryptoStr.length==0){
+                                  _controllerCrypto.text = " ";
+                                }
+                                _controllerCrypto.text = (double.parse(usdStr)/double.parse(widget.crypto.priceUsd)).toString();
+                              });
+                            },
+                            decoration: new InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 10.0),
+                              hintStyle: Theme.TextStyles.commonTextStyle,
+                              labelStyle: Theme.TextStyles.commonTextStyle,
+                              labelText: "USD",
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          new FlatButton(
+                              onPressed: () {
+                                _controllerUSD.clear();
+                                _controllerCrypto.clear();
+                              },
+                              child: new Icon(Icons.clear, color: Theme.Colors.colorBlack,))
+                        ]
+                    ),
+
+                  ],),
                 ),
 
-                new Stack(
-                    alignment: const Alignment(1.0, 0.5),
-                    children: <Widget>[
-                      new TextField(
-                        controller: _controllerUSD,
-                        maxLines: 1,
-                        keyboardType: TextInputType.number,
-                        style: Theme.TextStyles.commonTextStyleWhite,
-
-                        onChanged: (newValue) {
-                          setState(() {
-                            usdStr = newValue.trim();
-                            if(cryptoStr.length==0){
-                              _controllerCrypto.text = " ";
-                            }
-                            _controllerCrypto.text = (double.parse(usdStr)/double.parse(widget.crypto.priceUsd)).toString();
-                          });
-                        },
-                        decoration: new InputDecoration(
-                          hintStyle: Theme.TextStyles.commonTextStyleWhite,
-                          labelStyle: Theme.TextStyles.commonTextStyleWhite,
-                          labelText: "USD",
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      new FlatButton(
-                          onPressed: () {
-                            _controllerUSD.clear();
-                            _controllerCrypto.clear();
-                          },
-                          child: new Icon(Icons.clear, color: Theme.Colors.colorWhite,))
-                    ]
-                ),
 
 
 
