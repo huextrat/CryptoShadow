@@ -37,6 +37,7 @@
 - [x] ~~Custom card~~
 - [x] ~~Chart~~
 - [x] ~~News Page~~
+- [x] ~~Converter~~
 - [ ] Settings Page
 - [ ] Select fav crypto
 - [ ] Edit default currency
