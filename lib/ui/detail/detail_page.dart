@@ -51,6 +51,7 @@ class DetailPageState extends State<DetailPage> {
   }
 
   final TextEditingController _controllerCrypto = new TextEditingController();
+
   final TextEditingController _controllerUSD = new TextEditingController();
   String cryptoStr = "";
   String usdStr = "";
@@ -134,7 +135,8 @@ class DetailPageState extends State<DetailPage> {
                                 _controllerCrypto.clear();
                                 _controllerUSD.clear();
                               },
-                              child: new Icon(Icons.clear, color: Theme.Colors.colorBlack,))
+                              child: new Icon(Icons.clear, color: Theme.Colors.appBarGradientEnd,)
+                          ),
                         ]
                     ),
                     new Separator(),
@@ -153,7 +155,12 @@ class DetailPageState extends State<DetailPage> {
                                 if(cryptoStr.length==0){
                                   _controllerCrypto.text = " ";
                                 }
-                                _controllerCrypto.text = (double.parse(usdStr)/double.parse(widget.crypto.priceUsd)).toString();
+                                if((double.parse(usdStr)/double.parse(widget.crypto.priceUsd)).toString().length >= 10){
+                                  _controllerCrypto.text = (double.parse(usdStr)/double.parse(widget.crypto.priceUsd)).toString().substring(0, 10);
+                                }
+                                else {
+                                  _controllerCrypto.text = (double.parse(usdStr)/double.parse(widget.crypto.priceUsd)).toString();
+                                }
                               });
                             },
                             decoration: new InputDecoration(
@@ -170,7 +177,7 @@ class DetailPageState extends State<DetailPage> {
                                 _controllerUSD.clear();
                                 _controllerCrypto.clear();
                               },
-                              child: new Icon(Icons.clear, color: Theme.Colors.colorBlack,))
+                              child: new Icon(Icons.clear, color: Theme.Colors.appBarGradientEnd,))
                         ]
                     ),
 
