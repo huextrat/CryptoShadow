@@ -5,7 +5,7 @@ import 'package:crypto_shadow/ui/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'home_page_body.dart';
-import 'package:crypto_shadow/Theme.dart' as Theme;
+import 'package:crypto_shadow/theme.dart' as Theme;
 import 'dart:math' as Math;
 
 class HomePage extends StatefulWidget {
@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
-  //https://cryptodonate.io/101296421651150539388
   AnimationController _controller;
 
   @override

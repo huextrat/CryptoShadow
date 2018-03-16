@@ -5,7 +5,8 @@ import 'package:crypto_shadow/model/historical_data.dart';
 import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
 import 'package:flutter/material.dart';
-import 'package:crypto_shadow/Theme.dart' as Theme;
+import 'package:crypto_shadow/theme.dart' as Theme;
+import 'package:flutter/services.dart';
 
 class DetailPage extends StatefulWidget {
   Crypto crypto;
@@ -26,7 +27,6 @@ class DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return new Scaffold(
       body: new Container(
         constraints: new BoxConstraints.expand(),
@@ -50,8 +50,13 @@ class DetailPageState extends State<DetailPage> {
     );
   }
 
+  final TextEditingController _controllerCrypto = new TextEditingController();
+  final TextEditingController _controllerUSD = new TextEditingController();
+  String cryptoStr = "";
+  String usdStr = "";
 
   Container _getContent() {
+    final _comparator = "Converter".toUpperCase();
     final _chart24h = "Chart (24h)".toUpperCase();
     final _chart7d = "Chart (7d)".toUpperCase();
     final _chart30d = "Chart (30d)".toUpperCase();
@@ -77,6 +82,80 @@ class DetailPageState extends State<DetailPage> {
                 new Text(
                     "\$"+widget.crypto.formatCurrency(widget.crypto.marketCapUsd).substring(0, widget.crypto.formatCurrency(widget.crypto.marketCapUsd).length - 3)+"\n\n", style: Theme.TextStyles.commonTextStyleWhite),
 
+                new Text(_comparator,
+                  style: Theme.TextStyles.headerTextStyle,),
+                new Separator(),
+
+                new Stack(
+                    alignment: const Alignment(1.0, 0.5),
+                    children: <Widget>[
+                      new TextField(
+                        controller: _controllerCrypto,
+                        maxLines: 1,
+                        keyboardType: TextInputType.number,
+                        style: Theme.TextStyles.commonTextStyleWhite,
+                        onChanged: (newValue) {
+                          setState(() {
+                            cryptoStr = newValue.trim();
+                            if(usdStr.length==0){
+                              _controllerUSD.text = " ";
+                            }
+                            _controllerUSD.text = (double.parse(cryptoStr)*double.parse(widget.crypto.priceUsd)).toString();
+                          });
+                        },
+                        decoration: new InputDecoration(
+                          hintStyle: Theme.TextStyles.commonTextStyleWhite,
+                          labelStyle: Theme.TextStyles.commonTextStyleWhite,
+                          labelText: widget.crypto.symbol,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      new FlatButton(
+                          onPressed: () {
+                            _controllerCrypto.clear();
+                            _controllerUSD.clear();
+                          },
+                          child: new Icon(Icons.clear, color: Theme.Colors.colorWhite,))
+                    ]
+                ),
+
+                new Stack(
+                    alignment: const Alignment(1.0, 0.5),
+                    children: <Widget>[
+                      new TextField(
+                        controller: _controllerUSD,
+                        maxLines: 1,
+                        keyboardType: TextInputType.number,
+                        style: Theme.TextStyles.commonTextStyleWhite,
+
+                        onChanged: (newValue) {
+                          setState(() {
+                            usdStr = newValue.trim();
+                            if(cryptoStr.length==0){
+                              _controllerCrypto.text = " ";
+                            }
+                            _controllerCrypto.text = (double.parse(usdStr)/double.parse(widget.crypto.priceUsd)).toString();
+                          });
+                        },
+                        decoration: new InputDecoration(
+                          hintStyle: Theme.TextStyles.commonTextStyleWhite,
+                          labelStyle: Theme.TextStyles.commonTextStyleWhite,
+                          labelText: "USD",
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      new FlatButton(
+                          onPressed: () {
+                            _controllerUSD.clear();
+                            _controllerCrypto.clear();
+                          },
+                          child: new Icon(Icons.clear, color: Theme.Colors.colorWhite,))
+                    ]
+                ),
+
+
+
+                new Text("\n"),
 
                 new Text(_chart24h,
                   style: Theme.TextStyles.headerTextStyle,),

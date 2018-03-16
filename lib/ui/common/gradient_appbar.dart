@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:crypto_shadow/Theme.dart' as Theme;
+import 'package:crypto_shadow/theme.dart' as Theme;
 
 class GradientAppBar extends StatelessWidget {
 

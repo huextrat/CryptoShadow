@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:core';
 import 'dart:convert';
 import 'dart:io';
 
@@ -7,7 +8,7 @@ import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:crypto_shadow/Theme.dart' as Theme;
+import 'package:crypto_shadow/theme.dart' as Theme;
 import 'package:http/http.dart' as http;
 
 class HomePageBody extends StatefulWidget {
@@ -39,7 +40,6 @@ class HomePageBodyState extends State<HomePageBody> {
   }
 
   Future<File> getLocalFile() async {
-    // get the path to the document directory.
     String dir = (await getApplicationDocumentsDirectory()).path;
     return new File('$dir/coin_list.txt');
   }
@@ -47,7 +47,6 @@ class HomePageBodyState extends State<HomePageBody> {
   Future<bool> getDataFromLocal() async {
     try {
       File file = await getLocalFile();
-      // read the variable as a string from the file.
       String contents = await file.readAsString();
 
       this.setState(() {
@@ -70,8 +69,9 @@ class HomePageBodyState extends State<HomePageBody> {
 
   @override
   void initState() {
-    getData();
+    super.initState();
     getDataFromAPI();
+    getData();
   }
 
   Crypto getCoin(int index) {

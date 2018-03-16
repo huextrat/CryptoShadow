@@ -1,13 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:crypto_shadow/model/fiat.dart';
 import 'package:http/http.dart' as http;
 import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:crypto_shadow/Theme.dart' as Theme;
+import 'package:crypto_shadow/theme.dart' as Theme;
 
 
 class SettingsPage extends StatefulWidget {
@@ -63,6 +60,7 @@ class SettingsPageState extends State<SettingsPage> {
         child: new Stack(
           children: <Widget>[
             new GradientAppBarWithBack("Settings"),
+
 
             new Container(
               margin: new EdgeInsets.fromLTRB(10.0, 100.0, 10.0, 300.0),
