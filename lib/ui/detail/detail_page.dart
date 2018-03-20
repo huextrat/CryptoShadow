@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:crypto_shadow/model/cryptos.dart';
-import 'package:crypto_shadow/model/historical_data.dart';
 import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
 import 'package:flutter/material.dart';
@@ -58,11 +58,13 @@ class DetailPageState extends State<DetailPage> {
 
   Container _getContent() {
     final _comparator = "Converter".toUpperCase();
-    final _chart24h = "Chart (24h)".toUpperCase();
-    final _chart7d = "Chart (7d)".toUpperCase();
-    final _chart30d = "Chart (30d)".toUpperCase();
-    final _chart1y = "Chart (1y)".toUpperCase();
+    final _chart24h = " (24h)".toUpperCase();
+    final _chart7d = " (7d)".toUpperCase();
+    final _chart30d = " (30d)".toUpperCase();
+    final _chart1y = " (1y)".toUpperCase();
     final _overviewVolume = "Market Cap".toUpperCase();
+
+    var dataTestSparkline = [0.0, 1.0, 1.5, 2.0, 0.0, 0.0, -0.5, -1.0, -0.5, 0.0, 0.0];
 
     return new Container(
       child: new ListView(
@@ -189,9 +191,21 @@ class DetailPageState extends State<DetailPage> {
 
                 new Text("\n"),
 
-                new Text(_chart24h,
-                  style: Theme.TextStyles.headerTextStyle,),
+                new Row(
+                  children: <Widget>[
+                    new Icon(Icons.timeline, color: Theme.Colors.colorWhite,),
+                    new Text(_chart24h, style: Theme.TextStyles.headerTextStyle,),
+                  ],
+                ),
                 new Separator(),
+                /**
+                new Sparkline(
+                  data: dataTestSparkline,
+                  lineColor: Theme.Colors.colorWhite,
+                  pointsMode: PointsMode.all,
+                  pointSize: 6.0,
+                  pointColor: Colors.blue,
+                ),**/
                 new Center(
                   child: new FadeInImage(
                       placeholder: new AssetImage("assets/loading.gif"),
@@ -201,8 +215,14 @@ class DetailPageState extends State<DetailPage> {
                   ),
                 ),
 
-                new Text(_chart7d,
-                  style: Theme.TextStyles.headerTextStyle,),
+                new Row(
+                  children: <Widget>[
+                    new Icon(Icons.timeline, color: Theme.Colors.colorWhite,),
+                    new Text(_chart7d, style: Theme.TextStyles.headerTextStyle,),
+                  ],
+                ),
+                //new Text(_chart7d, style: Theme.TextStyles.headerTextStyle,),
+                //new Icon(Icons.timeline, color: Theme.Colors.colorWhite,),
                 new Separator(),
                 new Center(
                   child: new FadeInImage(
@@ -213,8 +233,12 @@ class DetailPageState extends State<DetailPage> {
                   ),
                 ),
 
-                new Text(_chart1y,
-                  style: Theme.TextStyles.headerTextStyle,),
+                new Row(
+                  children: <Widget>[
+                    new Icon(Icons.timeline, color: Theme.Colors.colorWhite,),
+                    new Text(_chart1y, style: Theme.TextStyles.headerTextStyle,),
+                  ],
+                ),
                 new Separator(),
                 new Center(
                   child: new FadeInImage(
