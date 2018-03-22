@@ -62,8 +62,8 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
               colors: [
-                Theme.Colors.appBarGradientStart,
-                Theme.Colors.appBarGradientEnd
+                Theme.Colors2.appBarGradientStart,
+                Theme.Colors2.appBarGradientEnd
               ],
               begin: const FractionalOffset(0.0, 0.0),
               end: const FractionalOffset(1.0, 0.0),
@@ -185,7 +185,7 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
                                                           fontWeight: FontWeight.w600,
                                                           fontSize: 36.0),
                                                       ),
-                                                      backgroundColor: Theme.Colors.appBarGradientStart,
+                                                      backgroundColor: Theme.Colors2.appBarGradientStart,
                                                     ),
                                                   ),
                                                   transitionsBuilder: (context, animation, secondaryAnimation, child) =>

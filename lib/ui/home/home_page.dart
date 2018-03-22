@@ -1,6 +1,7 @@
 import 'package:crypto_shadow/ui/common/gradient_appbar.dart';
 import 'package:crypto_shadow/ui/detail/detail_page.dart';
 import 'package:crypto_shadow/ui/news/news_page.dart';
+import 'package:crypto_shadow/ui/portfolio/portfolio_page.dart';
 import 'package:crypto_shadow/ui/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
@@ -23,6 +24,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.payment];
+
   @override
   Widget build(BuildContext context) {
 
@@ -34,7 +36,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
           new HomePageBody(),
         ],
       ),
-      
+
       floatingActionButton: new Column(
         mainAxisSize: MainAxisSize.min,
         children: new List.generate(icons.length, (int index){
@@ -52,11 +54,11 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                 ),
                 child: new FloatingActionButton(
-                  backgroundColor: Theme.Colors.colorBlue,
+                  backgroundColor: Theme.Colors2.colorBlue,
                   mini: true,
                   child: new Icon(
                       icons[index],
-                      color: Theme.Colors.colorWhite,
+                      color: Theme.Colors2.colorWhite,
                   ),
                   heroTag: "hero-fab-"+index.toString(),
 
@@ -85,6 +87,15 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       _controller.reverse();
                       Navigator.of(context).push(
                         new PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => new PortfolioPage(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+                          new FadeTransition(opacity: animation, child: child),
+                        ),
+                      );
+                      /**
+                      _controller.reverse();
+                      Navigator.of(context).push(
+                        new PageRouteBuilder(
 
                           pageBuilder: (_, __, ___) => new WebviewScaffold(
                             url: "https://cryptodonate.io/101296421651150539388",
@@ -97,13 +108,14 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   fontWeight: FontWeight.w600,
                                   fontSize: 36.0),
                               ),
-                              backgroundColor: Theme.Colors.appBarGradientStart,
+                              backgroundColor: Themes.Colors.appBarGradientStart,
                             ),
                           ),
                           transitionsBuilder: (context, animation, secondaryAnimation, child) =>
                           new FadeTransition(opacity: animation, child: child),
                         ),
                       );
+                          **/
                     }
                   },
                 ),

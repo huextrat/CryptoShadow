@@ -32,7 +32,7 @@ class DetailPageState extends State<DetailPage> {
         constraints: new BoxConstraints.expand(),
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
-              colors: [Theme.Colors.appBarGradientStart, Theme.Colors.appBarGradientEnd],
+              colors: [Theme.Colors2.appBarGradientStart, Theme.Colors2.appBarGradientEnd],
               begin: const FractionalOffset(0.0, 0.0),
               end: const FractionalOffset(1.0, 0.0),
               stops: [0.0, 1.0],
@@ -137,7 +137,7 @@ class DetailPageState extends State<DetailPage> {
                                 _controllerCrypto.clear();
                                 _controllerUSD.clear();
                               },
-                              child: new Icon(Icons.clear, color: Theme.Colors.appBarGradientEnd,)
+                              child: new Icon(Icons.clear, color: Theme.Colors2.appBarGradientEnd,)
                           ),
                         ]
                     ),
@@ -179,7 +179,7 @@ class DetailPageState extends State<DetailPage> {
                                 _controllerUSD.clear();
                                 _controllerCrypto.clear();
                               },
-                              child: new Icon(Icons.clear, color: Theme.Colors.appBarGradientEnd,))
+                              child: new Icon(Icons.clear, color: Theme.Colors2.appBarGradientEnd,))
                         ]
                     ),
 
@@ -193,7 +193,7 @@ class DetailPageState extends State<DetailPage> {
 
                 new Row(
                   children: <Widget>[
-                    new Icon(Icons.timeline, color: Theme.Colors.colorWhite,),
+                    new Icon(Icons.timeline, color: Theme.Colors2.colorWhite,),
                     new Text(_chart24h, style: Theme.TextStyles.headerTextStyle,),
                   ],
                 ),
@@ -217,7 +217,7 @@ class DetailPageState extends State<DetailPage> {
 
                 new Row(
                   children: <Widget>[
-                    new Icon(Icons.timeline, color: Theme.Colors.colorWhite,),
+                    new Icon(Icons.timeline, color: Theme.Colors2.colorWhite,),
                     new Text(_chart7d, style: Theme.TextStyles.headerTextStyle,),
                   ],
                 ),
@@ -235,7 +235,7 @@ class DetailPageState extends State<DetailPage> {
 
                 new Row(
                   children: <Widget>[
-                    new Icon(Icons.timeline, color: Theme.Colors.colorWhite,),
+                    new Icon(Icons.timeline, color: Theme.Colors2.colorWhite,),
                     new Text(_chart1y, style: Theme.TextStyles.headerTextStyle,),
                   ],
                 ),

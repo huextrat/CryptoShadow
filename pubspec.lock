@@ -90,10 +90,10 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_sparkline:
+  flutter_circular_chart:
     dependency: "direct main"
     description:
-      name: flutter_sparkline
+      name: flutter_circular_chart
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.2"

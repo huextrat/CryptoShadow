@@ -30,7 +30,7 @@ class GradientAppBar extends StatelessWidget {
       ),
       decoration: new BoxDecoration(
         gradient: new LinearGradient(
-            colors: [Theme.Colors.appBarGradientStart, Theme.Colors.appBarGradientEnd],
+            colors: [Theme.Colors2.appBarGradientStart, Theme.Colors2.appBarGradientEnd],
             begin: const FractionalOffset(0.0, 0.0),
             end: const FractionalOffset(1.0, 0.0),
             stops: [0.0, 1.0],

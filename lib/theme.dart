@@ -1,8 +1,33 @@
 import 'package:flutter/material.dart';
 
-class Colors {
+Color getSymbolColor(String symbol) {
+  Map<String, Color> colors = {
+    'ETH': Colors.orange,
+    'EOS': Colors.grey[200],
+    'REQ': Colors.blue[200],
+    'REP': Colors.blueGrey[200],
+    'SALT': Colors.brown[200],
+    'OMG': Colors.cyan[200],
+    'VIU': Colors.deepOrange[200],
+    'XVG': Colors.deepPurple[200],
+    'RDN': Colors.green[200],
+    'XMR': Colors.indigo[200],
+    'ADA': Colors.lightBlue[200],
+    'BCH': Colors.lime[200],
+    'BTC': Colors.orange[200],
+    'DASH': Colors.purple[200],
+    'LTC': Colors.red[200],
+  };
+  if (!colors.containsKey(symbol)) {
+    return Colors.black;
+  } else {
+    return colors[symbol];
+  }
+}
 
-  const Colors();
+class Colors2 {
+
+  const Colors2();
 
   static const Color appBarTitle = const Color(0xFFFFFFFF);
   static const Color appBarIconColor = const Color(0xFFFFFFFF);
@@ -22,6 +47,13 @@ class Colors {
   static const Color colorBlack2 = const Color(0x99000000);
 
   static const Color colorBlue = const Color(0xFF2196F3);
+
+  static const primaryGradient = const LinearGradient(
+    colors: const [const Color(0xFFee0979), const Color(0xFFff6a00)],
+    stops: const [0.0, 1.0],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+  );
 }
 
 class Dimens {
@@ -44,31 +76,31 @@ class TextStyles {
   );
 
   static final commonTextStyle = baseTextStyle.copyWith(
-      color: Colors.colorBlack2,
+      color: Colors2.colorBlack2,
       fontSize: 17.0,
       fontWeight: FontWeight.w400
   );
 
   static final commonTextStyle14 = baseTextStyle.copyWith(
-      color: Colors.colorBlack2,
+      color: Colors2.colorBlack2,
       fontSize: 16.0,
       fontWeight: FontWeight.w400
   );
 
   static final commonTextStyleWhite = baseTextStyle.copyWith(
-      color: Colors.colorWhite,
+      color: Colors2.colorWhite,
       fontSize: 17.0,
       fontWeight: FontWeight.w400
   );
 
   static final titleTextStyle = baseTextStyle.copyWith(
-      color: Colors.colorBlack,
+      color: Colors2.colorBlack,
       fontSize: 18.0,
       fontWeight: FontWeight.w600
   );
 
   static final headerTextStyle = baseTextStyle.copyWith(
-      color: Colors.colorWhite,
+      color: Colors2.colorWhite,
       fontSize: 20.0,
       fontWeight: FontWeight.w400
   );
