@@ -11,21 +11,25 @@ class PortfolioList extends StatelessWidget {
 
   @override
   Widget build(BuildContext ctx) {
+    // ignore: undefined_operator
     coins.sort((a, b) => a['buyPriceUSD'] > b['buyPriceUSD'] ? -1 : 1);
     NumberFormat currencyFormat = new NumberFormat.currency(decimalDigits: 2, name: 'fiat', symbol: ' $fiat ');
     List<DataRow> rows = new List.generate(coins.length, (int i) {
       Object coin = coins[i];
       return new DataRow(cells: [
-        new DataCell(new Text(coin['symbol'])),
-        new DataCell(new Text(coin['amount'].toStringAsFixed(3))),
-        new DataCell(new Text(currencyFormat.format(coin['buyPriceUSD']))),
+        // ignore: undefined_operator
+        new DataCell(new Text(coin['symbol'].toString().toUpperCase())),
+        // ignore: undefined_operator
+        new DataCell(new Text(coin['amount'].toStringAsFixed(8))),
+        // ignore: undefined_operator
+        new DataCell(new Text(coin['buyPriceUSD'].toStringAsFixed(8))),
       ]);
     });
     return new DataTable(
         columns: [
           new DataColumn(label: new Text('Symbol')),
           new DataColumn(label: new Text('Amount')),
-          new DataColumn(label: new Text('Value')),
+          new DataColumn(label: new Text('Buy Price USD')),
         ],
         rows: rows
     );

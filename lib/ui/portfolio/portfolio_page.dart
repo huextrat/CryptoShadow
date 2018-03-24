@@ -1,8 +1,12 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:crypto_shadow/ui/portfolio/add_coin_page.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_chart.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_header.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_list.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 class PortfolioPage extends StatefulWidget {
@@ -21,26 +25,54 @@ class PortfolioPageState extends State<PortfolioPage> {
   double _total = 0.0;
   double _stake = 0.0;
 
+  String data;
+
+  Future<File> getLocalFile() async {
+    String dir = (await getApplicationDocumentsDirectory()).path;
+    return new File('$dir/coin_portfolio.txt');
+  }
+
+  Future<bool> getDataFromLocal() async {
+    try {
+      File file = await getLocalFile();
+      String contents = await file.readAsString();
+
+      this.setState(() {
+        data = contents;
+        _coins = [];
+
+        List<String> s1 = data.split("\n");
+        print(s1);
+
+        s1.forEach((element){
+          List<String> s2 = element.split(";");
+          _coins.add({
+            'symbol': s2[0],
+            'amount': double.parse(s2[1]),
+            'buyPriceUSD': double.parse(s2[2]),
+          });
+        });
+
+
+
+        // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
+        _stake = (_coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b));
+        // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
+        _total = _coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b);
+      });
+
+      return true;
+    } on FileSystemException {
+      return false;
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    getDataFromLocal();
 
-    _coins = [];
 
-    _coins.add({
-      'symbol': "BTC",
-      'amount': 4.0,
-      'buyPriceUSD':  7000.0,
-    });
-
-    _coins.add({
-      'symbol': "GNT",
-      'amount': 550.0,
-      'buyPriceUSD':  0.30,
-    });
-
-    _stake = (_coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b));
-    _total = _coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b);
   }
 
   @override

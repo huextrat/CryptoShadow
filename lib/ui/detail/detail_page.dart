@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:convert';
-
 import 'package:crypto_shadow/model/cryptos.dart';
 import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
@@ -51,8 +48,8 @@ class DetailPageState extends State<DetailPage> {
   }
 
   final TextEditingController _controllerCrypto = new TextEditingController();
-
   final TextEditingController _controllerUSD = new TextEditingController();
+
   String cryptoStr = "";
   String usdStr = "";
 
@@ -60,11 +57,8 @@ class DetailPageState extends State<DetailPage> {
     final _comparator = "Converter".toUpperCase();
     final _chart24h = " (24h)".toUpperCase();
     final _chart7d = " (7d)".toUpperCase();
-    final _chart30d = " (30d)".toUpperCase();
     final _chart1y = " (1y)".toUpperCase();
     final _overviewVolume = "Market Cap".toUpperCase();
-
-    var dataTestSparkline = [0.0, 1.0, 1.5, 2.0, 0.0, 0.0, -0.5, -1.0, -0.5, 0.0, 0.0];
 
     return new Container(
       child: new ListView(

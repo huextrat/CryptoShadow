@@ -1,10 +1,8 @@
 import 'package:crypto_shadow/ui/common/gradient_appbar.dart';
-import 'package:crypto_shadow/ui/detail/detail_page.dart';
 import 'package:crypto_shadow/ui/news/news_page.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_page.dart';
 import 'package:crypto_shadow/ui/settings/settings_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'home_page_body.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 import 'dart:math' as Math;

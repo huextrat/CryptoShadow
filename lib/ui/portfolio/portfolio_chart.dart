@@ -11,6 +11,7 @@ class PortfolioChart extends StatelessWidget {
   @override
   Widget build(BuildContext ctx) {
     List<CircularSegmentEntry> stacks = new List.generate(this.data.length, (int i) {
+      // ignore: undefined_operator
       return new CircularSegmentEntry(this.data[i]['amount']*this.data[i]['buyPriceUSD'], Theme.getSymbolColor(this.data[i]['symbol'].toString().toUpperCase()));
     });
     return new AnimatedCircularChart(

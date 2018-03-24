@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 class PortfolioHeader extends StatelessWidget {
@@ -15,7 +14,7 @@ class PortfolioHeader extends StatelessWidget {
   @override
   Widget build(BuildContext ctx) {
     double profit = total - stake;
-    NumberFormat nf = new NumberFormat("###,###,###");
+    //NumberFormat nf = new NumberFormat("###,###,###");
     double percent = profit / total * 100;
     return new ClipPath(
       clipper: new ArcClipper(),
@@ -30,7 +29,7 @@ class PortfolioHeader extends StatelessWidget {
               new Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    new Text(nf.format(total)+" $fiat", style: new TextStyle(color: Colors.white, fontSize: 38.0, fontWeight: FontWeight.w400)),
+                    new Text("$total"+" $fiat", style: new TextStyle(color: Colors.white, fontSize: 38.0, fontWeight: FontWeight.w400)),
                     //new Text("TOTAL $fiat", style: new TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 13.0))
                   ]
               ),
@@ -39,11 +38,11 @@ class PortfolioHeader extends StatelessWidget {
                 children: <Widget>[
                   new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
                     new Text('STAKE', style: detailExp),
-                    new Text(nf.format(stake) + ' $fiat', style: detailNumberStyle),
+                    new Text('$stake' + ' $fiat', style: detailNumberStyle),
                   ]),
                   new Column(crossAxisAlignment: CrossAxisAlignment.end, children: <Widget>[
                     new Text('PROFIT (${percent.toStringAsFixed(0)}%)', style: detailExp),
-                    new Text(nf.format(profit) + ' $fiat', style: detailNumberStyle),
+                    new Text('$profit' + ' $fiat', style: detailNumberStyle),
                   ]),
                 ],
               )
