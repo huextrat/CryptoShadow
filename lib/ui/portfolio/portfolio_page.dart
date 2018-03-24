@@ -18,20 +18,29 @@ class PortfolioPageState extends State<PortfolioPage> {
   Object obj;
   List<Object> _coins = [];
 
+  double _total = 0.0;
+  double _stake = 0.0;
+
   @override
   void initState() {
     super.initState();
+
     _coins = [];
+
+    _coins.add({
+      'symbol': "BTC",
+      'amount': 4.0,
+      'buyPriceUSD':  7000.0,
+    });
+
     _coins.add({
       'symbol': "GNT",
-      'amount': 10.0,
-      'value':  2000.0,
+      'amount': 550.0,
+      'buyPriceUSD':  0.30,
     });
-    _coins.add({
-      'symbol': "REQ",
-      'amount': 2000.0,
-      'value':  200.0,
-    });
+
+    _stake = (_coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b));
+    _total = _coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b);
   }
 
   @override
@@ -42,7 +51,7 @@ class PortfolioPageState extends State<PortfolioPage> {
           new Stack(children: <Widget>[
             new Container(
               height: 230.0,
-              child: new PortfolioHeader(total: 1000.0, stake: 100.0, fiat: "USD"),
+              child: new PortfolioHeader(total: _total, stake: _stake, fiat: "USD"),
             ),
             new RowWithMenu(),
           ]),
@@ -61,17 +70,13 @@ class PortfolioPageState extends State<PortfolioPage> {
           child: new Icon(
             Icons.add, color: Colors.white,
           ),
-          onPressed: () => Navigator.of(context).push(
-            new MaterialPageRoute(builder: (BuildContext context)=>new AddCoinPage(),
-            fullscreenDialog: true,
-            ),
-            /**
-            new PageRouteBuilder(
-              pageBuilder: (_, __, ___) => new AddCoinPage(),
-              transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-              new FadeTransition(opacity: animation, child: child),
-            ),**/
-          ),
+          onPressed: () =>
+              Navigator.of(context).push(
+                new MaterialPageRoute(
+                  builder: (BuildContext context)=>new AddCoinPage(),
+                  fullscreenDialog: true,
+                ),
+              ),
       ),
     );
   }
@@ -84,6 +89,33 @@ class RowWithMenu extends StatelessWidget {
     return new Container(
         margin: new EdgeInsets.only(left: 15.0, top: 32.0),
         child: new BackButton(color: Colors.white),
+    );
+  }
+}
+
+class DialogDemoItem extends StatelessWidget {
+  const DialogDemoItem({ Key key, this.icon, this.color, this.text, this.onPressed }) : super(key: key);
+
+  final IconData icon;
+  final Color color;
+  final String text;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return new SimpleDialogOption(
+      onPressed: onPressed,
+      child: new Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          new Icon(icon, size: 36.0, color: color),
+          new Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: new Text(text),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,10 +1,13 @@
 import 'dart:async';
-import 'dart:convert';
+import 'dart:io';
 
 import 'package:crypto_shadow/ui/common/separator.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart';
 import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 
@@ -14,6 +17,7 @@ class AddCoinPage extends StatefulWidget {
 }
 
 class AddCoinPageState extends State<AddCoinPage> {
+
 
   @override
   void initState() {
@@ -40,9 +44,8 @@ class AddCoinPageState extends State<AddCoinPage> {
           children: <Widget>[
             new GradientAppBarWithBack("Add Portfolio"),
 
-
             new Container(
-              margin: new EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+              margin: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
 
               decoration: new BoxDecoration(
                 color: new Color(0xFFFFFFFF),
@@ -116,7 +119,17 @@ class AddCoinPageState extends State<AddCoinPage> {
                       ),
                     ]
                 ),
+
               ],),
+            ),
+            new Container(
+              margin: new EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+              child: new MaterialButton(
+                minWidth: 200.0,
+                onPressed: () => null,
+                child: new Text('Save', style: Theme.TextStyles.commonTextStyleWhite,),
+                color: Theme.Colors2.colorBlue,
+              ),
             ),
           ],
         ),
