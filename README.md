@@ -38,6 +38,7 @@
 - [x] ~~Chart~~
 - [x] ~~News Page~~
 - [x] ~~Converter~~
+- [x] ~~Portfolio~~ (Still under dev but it works)
 - [ ] Settings Page
 - [ ] Select fav crypto
 - [ ] Edit default currency
