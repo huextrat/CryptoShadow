@@ -1,12 +1,11 @@
 import 'dart:async';
-import 'dart:io';
 
+import 'package:crypto_shadow/database/database_client.dart';
 import 'package:crypto_shadow/ui/portfolio/add_coin_page.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_chart.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_header.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_list.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 class PortfolioPage extends StatefulWidget {
@@ -19,60 +18,41 @@ class PortfolioPage extends StatefulWidget {
 
 class PortfolioPageState extends State<PortfolioPage> {
 
-  Object obj;
   List<Object> _coins = [];
 
   double _total = 0.0;
   double _stake = 0.0;
 
-  String data;
+  List portfolio;
+  DatabaseClient db = new DatabaseClient();
 
-  Future<File> getLocalFile() async {
-    String dir = (await getApplicationDocumentsDirectory()).path;
-    return new File('$dir/coin_portfolio.txt');
-  }
+  Future getDatabase() async{
 
-  Future<bool> getDataFromLocal() async {
-    try {
-      File file = await getLocalFile();
-      String contents = await file.readAsString();
+    await db.create();
+    portfolio = await db.fetchEveryone();
 
-      this.setState(() {
-        data = contents;
-        _coins = [];
+    this.setState(() {
 
-        List<String> s1 = data.split("\n");
-        print(s1);
-
-        s1.forEach((element){
-          List<String> s2 = element.split(";");
-          _coins.add({
-            'symbol': s2[0],
-            'amount': double.parse(s2[1]),
-            'buyPriceUSD': double.parse(s2[2]),
-          });
+      portfolio.forEach((port){
+        _coins.add({
+          'symbol': "${port.symbol}",
+          'buyPriceUSD': double.parse("${port.priceUSD}"),
+          'amount': double.parse("${port.amount}"),
         });
-
-
-
-        // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
-        _stake = (_coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b));
-        // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
-        _total = _coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b);
       });
 
-      return true;
-    } on FileSystemException {
-      return false;
-    }
+      // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
+      _stake = (_coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b));
+      // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
+      _total = _coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b);
+    });
   }
+
 
   @override
   void initState() {
     super.initState();
-    getDataFromLocal();
-
-
+    getDatabase();
   }
 
   @override

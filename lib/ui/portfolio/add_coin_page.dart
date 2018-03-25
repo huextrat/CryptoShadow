@@ -1,12 +1,10 @@
-import 'dart:async';
-import 'dart:io';
-
+import 'package:crypto_shadow/database/database_client.dart';
+import 'package:crypto_shadow/model/portfolio.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_page.dart';
 import 'package:flutter/services.dart';
 import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 
@@ -23,31 +21,18 @@ class AddCoinPageState extends State<AddCoinPage> {
   final TextEditingController _controllerPriceUSD = new TextEditingController();
   final TextEditingController _controllerAmount = new TextEditingController();
 
+  DatabaseClient db = new DatabaseClient();
 
-  Future<File> getLocalFile() async {
-    String dir = (await getApplicationDocumentsDirectory()).path;
-    return new File('$dir/coin_portfolio.txt');
-  }
+  void save(BuildContext context) async{
 
-  Future<bool> getDataFromLocal() async {
-    try {
-      File file = await getLocalFile();
-      String contents = await file.readAsString();
+    await db.create();
+    Portfolio portfolio = new Portfolio();
+    portfolio.symbol = _controllerSymbol.text;
+    portfolio.priceUSD = _controllerPriceUSD.text;
+    portfolio.amount = _controllerAmount.text;
+    portfolio = await db.insertPortfolio(portfolio);
+    await db.close();
 
-      this.setState(() {
-        data = contents;
-      });
-
-      return true;
-    } on FileSystemException {
-      return false;
-    }
-  }
-
-  void save(String str, BuildContext context) async{
-    final file = await getLocalFile();
-    if(data!=null) file.writeAsString(data+"\n"+str);
-    else file.writeAsString(str);
     Navigator.of(context).push(
       new PageRouteBuilder(
         pageBuilder: (_, __, ___) => new PortfolioPage(),
@@ -60,7 +45,6 @@ class AddCoinPageState extends State<AddCoinPage> {
   @override
   void initState() {
     super.initState();
-    getDataFromLocal();
   }
 
   @override
@@ -168,7 +152,7 @@ class AddCoinPageState extends State<AddCoinPage> {
               margin: new EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
               child: new MaterialButton(
                 minWidth: 200.0,
-                onPressed: () => save(_controllerSymbol.text+";"+_controllerPriceUSD.text+";"+_controllerAmount.text, context),
+                onPressed: () => save(context),
                 child: new Text('Save', style: Theme.TextStyles.commonTextStyleWhite,),
                 color: Theme.Colors2.colorBlue,
               ),
