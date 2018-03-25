@@ -142,9 +142,9 @@ class PortfolioPageState extends State<PortfolioPage> {
 
   @override
   void initState() {
-    super.initState();
     getDataFromLocal();
     getDatabase();
+    super.initState();
   }
 
 }

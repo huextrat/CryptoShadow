@@ -18,13 +18,20 @@ class PortfolioList extends StatelessWidget {
       Object coin = coins[i];
       return new DataRow(cells: [
         // ignore: undefined_operator
-        new DataCell(new Text(coin['symbol'].toString().toUpperCase())),
+        new DataCell(new Text(coin['symbol'].toString().toUpperCase()), onTap: ()=>Scaffold.of(ctx).showSnackBar(new SnackBar(
+            content: new Text('You pressed '+ coin['symbol'].toString().toUpperCase() +'')
+        )),),
         // ignore: undefined_operator
-        new DataCell(new Text(coin['amount'].toStringAsPrecision(8))),
+        new DataCell(new Text(coin['amount'].toStringAsPrecision(8)), onTap: ()=>Scaffold.of(ctx).showSnackBar(new SnackBar(
+            content: new Text('You pressed '+ coin['symbol'].toString().toUpperCase() +'')
+        )),),
         // ignore: undefined_operator
-        new DataCell(new Text(coin['buyPriceUSD'].toStringAsPrecision(10))),
+        new DataCell(new Text(coin['buyPriceUSD'].toStringAsPrecision(10)), onTap: ()=>Scaffold.of(ctx).showSnackBar(new SnackBar(
+            content: new Text('You pressed '+ coin['symbol'].toString().toUpperCase() +'')
+        )),),
       ]);
     });
+
     return new DataTable(
         columns: [
           new DataColumn(label: new Text('Symbol')),
@@ -33,5 +40,6 @@ class PortfolioList extends StatelessWidget {
         ],
         rows: rows
     );
+
   }
 }

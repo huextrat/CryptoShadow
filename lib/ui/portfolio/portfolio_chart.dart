@@ -17,7 +17,7 @@ class PortfolioChart extends StatelessWidget {
     return new AnimatedCircularChart(
       duration: const Duration(milliseconds: 1000),
       key: _chartKey,
-      size: const Size(280.0, 280.0),
+      size: const Size(280.0, 230.0),
       initialChartData: [new CircularStackEntry(stacks)],
       chartType: CircularChartType.Radial,
     );
