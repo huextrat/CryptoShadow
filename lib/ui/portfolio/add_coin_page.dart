@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:crypto_shadow/database/database_client.dart';
 import 'package:crypto_shadow/model/portfolio.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
@@ -5,6 +9,7 @@ import 'package:crypto_shadow/ui/portfolio/portfolio_page.dart';
 import 'package:flutter/services.dart';
 import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 
@@ -15,7 +20,7 @@ class AddCoinPage extends StatefulWidget {
 
 class AddCoinPageState extends State<AddCoinPage> {
 
-  String data;
+  List data;
 
   final TextEditingController _controllerSymbol = new TextEditingController();
   final TextEditingController _controllerPriceUSD = new TextEditingController();
@@ -23,28 +28,74 @@ class AddCoinPageState extends State<AddCoinPage> {
 
   DatabaseClient db = new DatabaseClient();
 
-  void save(BuildContext context) async{
+  Future<File> getLocalFile() async {
+    String dir = (await getApplicationDocumentsDirectory()).path;
+    return new File('$dir/coin_list.txt');
+  }
+
+  Future<bool> getDataFromLocal() async {
+    try {
+      File file = await getLocalFile();
+      String contents = await file.readAsString();
+
+      this.setState(() {
+        data = JSON.decode(contents);
+      });
+
+      return true;
+    } on FileSystemException {
+      return false;
+    }
+  }
+
+  void save() async{
+
+    bool isSymbol = false;
 
     await db.create();
     Portfolio portfolio = new Portfolio();
-    portfolio.symbol = _controllerSymbol.text;
-    portfolio.priceUSD = _controllerPriceUSD.text;
-    portfolio.amount = _controllerAmount.text;
-    portfolio = await db.insertPortfolio(portfolio);
-    await db.close();
 
-    Navigator.of(context).push(
-      new PageRouteBuilder(
-        pageBuilder: (_, __, ___) => new PortfolioPage(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-        new FadeTransition(opacity: animation, child: child),
-      ),
-    );
+    data.forEach((d){
+      if(d["symbol"] == _controllerSymbol.text.toUpperCase()){
+        portfolio.symbol = _controllerSymbol.text;
+        isSymbol = true;
+      }
+    });
+
+    if(isSymbol){
+      portfolio.priceUSD = _controllerPriceUSD.text;
+      portfolio.amount = _controllerAmount.text;
+      portfolio = await db.insertPortfolio(portfolio);
+      await db.close();
+
+      Navigator.of(context).pushReplacement(
+        new PageRouteBuilder(
+          pageBuilder: (_, __, ___) => new PortfolioPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+          new FadeTransition(opacity: animation, child: child),
+        ),
+      );
+    }
+    else {
+      _controllerSymbol.clear();
+      _controllerSymbol.value = new TextEditingValue(text: "Unknown crypto");
+      _controllerAmount.clear();
+      _controllerPriceUSD.clear();
+    }
+    /**
+    else {
+    _controllerSymbol.clear();
+    Scaffold.of(context).showSnackBar(new SnackBar(
+    content: new Text('This crypto is unknown.')
+    ));
+    }**/
   }
+
 
   @override
   void initState() {
     super.initState();
+    getDataFromLocal();
   }
 
   @override
@@ -89,6 +140,18 @@ class AddCoinPageState extends State<AddCoinPage> {
                     children: <Widget>[
                       new TextField(
                         controller: _controllerSymbol,
+                        onChanged: (newValue) {
+                          setState(() {
+                            if(newValue.trim().length == 0){
+                              _controllerPriceUSD.clear();
+                            }
+                            data.forEach((d){
+                              if(d["symbol"] == newValue.trim().toUpperCase()){
+                                _controllerPriceUSD.text = d["price_usd"];
+                              }
+                            });
+                          });
+                        },
                         maxLines: 1,
                         keyboardType: TextInputType.text,
                         style: Theme.TextStyles.commonTextStyle,
@@ -97,7 +160,7 @@ class AddCoinPageState extends State<AddCoinPage> {
                           contentPadding: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 10.0),
                           hintStyle: Theme.TextStyles.commonTextStyle,
                           labelStyle: Theme.TextStyles.commonTextStyle,
-                          labelText: "Symbol",
+                          labelText: "Symbol *",
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -118,7 +181,7 @@ class AddCoinPageState extends State<AddCoinPage> {
                           contentPadding: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 10.0),
                           hintStyle: Theme.TextStyles.commonTextStyle,
                           labelStyle: Theme.TextStyles.commonTextStyle,
-                          labelText: "Buy Price in USD",
+                          labelText: "Buy Price in USD *",
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -139,7 +202,7 @@ class AddCoinPageState extends State<AddCoinPage> {
                           contentPadding: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 10.0),
                           hintStyle: Theme.TextStyles.commonTextStyle,
                           labelStyle: Theme.TextStyles.commonTextStyle,
-                          labelText: "Amount Bought",
+                          labelText: "Amount Bought *",
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -152,7 +215,7 @@ class AddCoinPageState extends State<AddCoinPage> {
               margin: new EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
               child: new MaterialButton(
                 minWidth: 200.0,
-                onPressed: () => save(context),
+                onPressed: () => save(),
                 child: new Text('Save', style: Theme.TextStyles.commonTextStyleWhite,),
                 color: Theme.Colors2.colorBlue,
               ),

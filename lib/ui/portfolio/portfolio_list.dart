@@ -20,9 +20,9 @@ class PortfolioList extends StatelessWidget {
         // ignore: undefined_operator
         new DataCell(new Text(coin['symbol'].toString().toUpperCase())),
         // ignore: undefined_operator
-        new DataCell(new Text(coin['amount'].toStringAsFixed(8))),
+        new DataCell(new Text(coin['amount'].toStringAsPrecision(8))),
         // ignore: undefined_operator
-        new DataCell(new Text(coin['buyPriceUSD'].toStringAsFixed(8))),
+        new DataCell(new Text(coin['buyPriceUSD'].toStringAsPrecision(10))),
       ]);
     });
     return new DataTable(
