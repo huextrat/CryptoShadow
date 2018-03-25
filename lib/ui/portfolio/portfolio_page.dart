@@ -72,26 +72,12 @@ class PortfolioPageState extends State<PortfolioPage> {
           ),
         ],
       ),
-      /**
-      floatingActionButton: new FloatingActionButton(
-
-        backgroundColor: Theme.Colors2.appBarGradientEnd,
-        child: new Icon(
-          Icons.add, color: Colors.white,
-        ),
-        onPressed: () =>
-            Navigator.of(context).push(
-              new MaterialPageRoute(
-                builder: (BuildContext context)=>new AddCoinPage(),
-                fullscreenDialog: true,
-              ),
-            ),
-      ),**/
     );
   }
 
   Future getDatabase() async{
 
+    await getDataFromLocal();
     await db.create();
     portfolio = await db.fetchEveryone();
 
@@ -112,11 +98,15 @@ class PortfolioPageState extends State<PortfolioPage> {
         });
       });
 
-      // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
-      _stake = (_coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b));
+      if(_coins.length>0){
+        // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
+        _stake = (_coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b));
+      }
+
       // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
       //_total = _total - _stake;
     });
+
   }
 
   Future<bool> getDataFromLocal() async {
@@ -124,8 +114,34 @@ class PortfolioPageState extends State<PortfolioPage> {
       File file = await getLocalFile();
       String contents = await file.readAsString();
 
+      await db.create();
+      portfolio = await db.fetchEveryone();
+
       this.setState(() {
         data = JSON.decode(contents);
+
+        this.setState(() {
+
+          portfolio.forEach((port){
+
+            data.forEach((d){
+              if(d["symbol"] == port.symbol.toString().toUpperCase()){
+                _total += double.parse(d["price_usd"])*double.parse(port.amount);
+              }
+            });
+
+            _coins.add({
+              'symbol': "${port.symbol}",
+              'buyPriceUSD': double.parse("${port.priceUSD}"),
+              'amount': double.parse("${port.amount}"),
+            });
+          });
+
+          if(_coins.length>0){
+            // ignore: undefined_operator, strong_mode_uses_dynamic_as_bottom
+            _stake = (_coins.map((coin)=>coin['buyPriceUSD']*coin['amount']).reduce((double a, double b) => a + b));
+          }
+        });
       });
 
       return true;
@@ -134,7 +150,6 @@ class PortfolioPageState extends State<PortfolioPage> {
     }
   }
 
-
   Future<File> getLocalFile() async {
     String dir = (await getApplicationDocumentsDirectory()).path;
     return new File('$dir/coin_list.txt');
@@ -142,9 +157,8 @@ class PortfolioPageState extends State<PortfolioPage> {
 
   @override
   void initState() {
-    getDataFromLocal();
-    getDatabase();
     super.initState();
+    getDataFromLocal();
   }
 
 }

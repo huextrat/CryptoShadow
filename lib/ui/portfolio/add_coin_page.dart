@@ -68,7 +68,11 @@ class AddCoinPageState extends State<AddCoinPage> {
       portfolio = await db.insertPortfolio(portfolio);
       await db.close();
 
-      Navigator.of(context).pushReplacement(
+      _controllerSymbol.clear();
+      _controllerAmount.clear();
+      _controllerPriceUSD.clear();
+
+      Navigator.of(context).push(
         new PageRouteBuilder(
           pageBuilder: (_, __, ___) => new PortfolioPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) =>

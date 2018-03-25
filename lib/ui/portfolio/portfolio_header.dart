@@ -19,7 +19,6 @@ class PortfolioHeader extends StatelessWidget {
     return new ClipPath(
       clipper: new ArcClipper(),
       child: new Container(
-        width: 500.0,
         padding: const EdgeInsets.only(top: 50.0),
         decoration: new BoxDecoration(gradient: Theme.Colors2.primaryGradient),
         child: new Column(
