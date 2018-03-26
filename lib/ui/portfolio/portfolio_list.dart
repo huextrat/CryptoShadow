@@ -81,7 +81,7 @@ class PortfolioList extends StatelessWidget {
         // ignore: undefined_operator
         new DataCell(new Text(coin['amount'].toStringAsFixed(8)), onTap: ()=> _showDialog(coin, ctx),),
         // ignore: undefined_operator
-        new DataCell(new Text(coin['buyPriceUSD'].toStringAsFixed(8)), onTap: ()=> _showDialog(coin, ctx),),
+        new DataCell(new Text(coin['buyPriceUSD'].toStringAsFixed(6)), onTap: ()=> _showDialog(coin, ctx),showEditIcon: true),
       ]);
     });
 

@@ -15,8 +15,20 @@ Color getSymbolColor(String symbol) {
     'ADA': Colors.lightBlue[200],
     'BCH': Colors.lime[200],
     'BTC': Colors.orange[200],
-    'DASH': Colors.purple[200],
+    'USDT': Colors.purple[200],
     'LTC': Colors.red[200],
+    'XLM': Colors.red[600],
+    'NEO': Colors.green[400],
+    'MIOTA': Colors.grey[500],
+    'DASH': Colors.blue[400],
+    'TRX': Colors.pink[400],
+    'XEM': Colors.blue[200],
+    'VEN': Colors.blue[700],
+    'ETC': Colors.lightGreen[700],
+    'QTUM': Colors.blue[300],
+    'BNB': Colors.yellow[700],
+    'BTG': Colors.yellow[300],
+    'DOGE': Colors.amber[200],
   };
   if (!colors.containsKey(symbol)) {
     return Colors.black;

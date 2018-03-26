@@ -64,7 +64,12 @@ class PortfolioPageState extends State<PortfolioPage> {
 
 
       Navigator.pop(context);
-      await getDataFromLocal();
+      Navigator.of(context).pushReplacement(new PageRouteBuilder(
+        pageBuilder: (_, __, ___) => new PortfolioPage(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+        new FadeTransition(opacity: animation, child: child),
+      ),);
+      //getDataFromLocal();
     }
     else {
       _controllerSymbol.clear();
