@@ -22,6 +22,11 @@ class DatabaseClient {
 
   }
 
+  Future<int> deletePortfolio(int portfolio) async {
+    int res = await _db.delete("portfolio", where: 'id = ?', whereArgs: [portfolio]);
+    return res;
+  }
+
   Future insertPortfolio(Portfolio portfolio) async {
     portfolio.id = await _db.insert("portfolio", portfolio.toMap());
     return portfolio;

@@ -72,7 +72,7 @@ class AddCoinPageState extends State<AddCoinPage> {
       _controllerAmount.clear();
       _controllerPriceUSD.clear();
 
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
         new PageRouteBuilder(
           pageBuilder: (_, __, ___) => new PortfolioPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) =>

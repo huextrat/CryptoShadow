@@ -19,6 +19,7 @@ class GradientAppBarWithBack extends StatelessWidget {
 
       children: <Widget>[
         new Container(
+          margin: new EdgeInsets.only(left: 10.0),
           padding: new EdgeInsets.only(top: statusBarHeight),
           height: statusBarHeight + barHeight,
           child: new Row(

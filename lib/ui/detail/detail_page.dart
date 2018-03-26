@@ -254,10 +254,8 @@ class DetailPageState extends State<DetailPage> {
   Container _getToolbar(BuildContext context) {
     return new Container(
       margin: new EdgeInsets.only(
-          top: MediaQuery
-              .of(context)
-              .padding
-              .top),
+        left: 10.0,
+          top: 32.0),
       child: new BackButton(color: Colors.white),
     );
   }
