@@ -30,7 +30,10 @@
 </div>
 
 <div align="center">
-  <img src="https://hugoextrat.com/images/cryptoshadow_banner.png" />
+  <img src="https://hugoextrat.com/images/github/CryptoShadow.png" height="640"/>
+  <img src="https://hugoextrat.com/images/github/CryptoShadow3.png" height="640"/>
+  <img src="https://hugoextrat.com/images/github/CryptoShadow4.png" height="640"/>
+  <img src="https://hugoextrat.com/images/github/CryptoShadow5.png" height="640"/>
 </div>
 
 ### TODO
