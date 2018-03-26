@@ -24,7 +24,7 @@
 <div align="center">
   <h3>
     <a href="https://hugoextrat.com">
-      Website
+      www.hugoextrat.com
     </a>
   </h3>
 </div>
