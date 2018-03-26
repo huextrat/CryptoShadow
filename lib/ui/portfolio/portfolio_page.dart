@@ -52,7 +52,7 @@ class PortfolioPageState extends State<PortfolioPage> {
       }
     });
 
-    if(isSymbol){
+    if(isSymbol && _controllerPriceUSD.text != "" && _controllerAmount.text != ""){
       portfolio.priceUSD = _controllerPriceUSD.text;
       portfolio.amount = _controllerAmount.text;
       portfolio = await db.insertPortfolio(portfolio);
@@ -68,9 +68,9 @@ class PortfolioPageState extends State<PortfolioPage> {
     }
     else {
       _controllerSymbol.clear();
-      _controllerSymbol.value = new TextEditingValue(text: "Unknown crypto");
       _controllerAmount.clear();
       _controllerPriceUSD.clear();
+      Navigator.pop(context);
     }
     /**
         else {

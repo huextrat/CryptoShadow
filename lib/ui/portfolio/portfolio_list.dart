@@ -36,6 +36,7 @@ class PortfolioList extends StatelessWidget {
         content:
             new Container(
               padding: const EdgeInsets.all(10.0),
+              // ignore: undefined_operator
               child: new Text("Are you sure you want to remove it from your Portfolio? \n\n"+coin['symbol'].toString().toUpperCase() + " | " + coin['amount'].toString() + " | " + coin['buyPriceUSD'].toString(), style: Theme.TextStyles.commonTextStyleWhite,),
               decoration: new BoxDecoration(
                 gradient: new LinearGradient(
@@ -59,6 +60,7 @@ class PortfolioList extends StatelessWidget {
               child: const Text('Yes'),
               onPressed: () {
                 Navigator.pop(ctx);
+                // ignore: undefined_operator
                 removeIdPortfolio(int.parse(coin['id']), ctx);
               })
         ],
