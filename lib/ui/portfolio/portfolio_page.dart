@@ -84,11 +84,9 @@ class PortfolioPageState extends State<PortfolioPage> {
   _showDialog(BuildContext ctx) async {
     await showDialog<String>(
       context: ctx,
-      child: new Dialog(
-          child: new AnimatedContainer(
-            //padding: MediaQuery.of(context).viewInsets,
-            duration: const Duration(milliseconds: 300),
-            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+      child: new _SystemPadding(child: new Dialog(
+          child: new Container(
+            //padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             constraints: new BoxConstraints.expand(),
             decoration: new BoxDecoration(
               gradient: new LinearGradient(
@@ -101,9 +99,13 @@ class PortfolioPageState extends State<PortfolioPage> {
             ),
 
             child: new Column(
-              //mainAxisAlignment: MainAxisAlignment.center,
-              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                
+                new Container(
+                  child: new Text("Add transaction:", style: Theme.TextStyles.commonTextStyleWhite,),
+                ),
 
                 new Container(
                   margin: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
@@ -210,7 +212,7 @@ class PortfolioPageState extends State<PortfolioPage> {
               ],
             ),
           ),
-
+      ),
       ),
     );
   }
@@ -244,13 +246,7 @@ class PortfolioPageState extends State<PortfolioPage> {
                 child: new Icon(
                   Icons.add, color: Colors.white,
                 ),
-                onPressed: () => _showDialog(context),/**
-                    Navigator.of(context).push(
-                      new MaterialPageRoute(
-                        builder: (BuildContext context)=>new AddCoinPage(),
-                        fullscreenDialog: true,
-                      ),
-                    ), **/
+                onPressed: () => _showDialog(context),
               ),
 
           ),
@@ -324,5 +320,20 @@ class RowWithMenu extends StatelessWidget {
         margin: new EdgeInsets.only(left: 10.0, top: 32.0),
         child: new BackButton(color: Colors.white),
     );
+  }
+}
+
+class _SystemPadding extends StatelessWidget {
+  final Widget child;
+
+  _SystemPadding({Key key, this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+    return new AnimatedContainer(
+        padding: mediaQuery.viewInsets,
+        duration: const Duration(milliseconds: 300),
+        child: child);
   }
 }

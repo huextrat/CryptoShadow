@@ -28,7 +28,7 @@ class PortfolioHeader extends StatelessWidget {
               new Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    new Text(total.toStringAsPrecision(6)+" $fiat", style: new TextStyle(color: Colors.white, fontSize: 38.0, fontWeight: FontWeight.w400)),
+                    new Text(total.toStringAsFixed(2)+" $fiat", style: new TextStyle(color: Colors.white, fontSize: 38.0, fontWeight: FontWeight.w400)),
                     //new Text("TOTAL $fiat", style: new TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 13.0))
                   ]
               ),
@@ -37,11 +37,11 @@ class PortfolioHeader extends StatelessWidget {
                 children: <Widget>[
                   new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
                     new Text('STAKE', style: detailExp),
-                    new Text(stake.toStringAsPrecision(6) + ' $fiat', style: detailNumberStyle),
+                    new Text(stake.toStringAsFixed(4) + ' $fiat', style: detailNumberStyle),
                   ]),
                   new Column(crossAxisAlignment: CrossAxisAlignment.end, children: <Widget>[
                     new Text('PROFIT (${percent.toStringAsPrecision(4)}%)', style: detailExp),
-                    new Text(profit.toStringAsPrecision(6) + ' $fiat', style: detailNumberStyle),
+                    new Text(profit.toStringAsFixed(4) + ' $fiat', style: detailNumberStyle),
                   ]),
                 ],
               )
