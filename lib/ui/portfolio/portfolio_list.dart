@@ -36,7 +36,7 @@ class PortfolioList extends StatelessWidget {
         content:
             new Container(
               padding: const EdgeInsets.all(10.0),
-              child: new Text("Are you sure you want to remove it from your Portfolio? \n\n"+coin['symbol'] + " | " + coin['amount'].toString() + " | " + coin['buyPriceUSD'].toString(), style: Theme.TextStyles.commonTextStyleWhite,),
+              child: new Text("Are you sure you want to remove it from your Portfolio? \n\n"+coin['symbol'].toString().toUpperCase() + " | " + coin['amount'].toString() + " | " + coin['buyPriceUSD'].toString(), style: Theme.TextStyles.commonTextStyleWhite,),
               decoration: new BoxDecoration(
                 gradient: new LinearGradient(
                     colors: [Theme.Colors2.appBarGradientStart, Theme.Colors2.appBarGradientEnd],
