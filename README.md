@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT" />
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=for-the-badge" alt="License MIT" />
   </a>
   <a href="https://github.com/Solido/awesome-flutter">
      <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome Flutter" />
