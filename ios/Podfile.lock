@@ -1,0 +1,39 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_webview_plugin (0.0.1):
+    - Flutter
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - path_provider (0.0.1):
+    - Flutter
+  - sqflite (0.0.1):
+    - Flutter
+    - FMDB (~> 2.7.2)
+
+DEPENDENCIES:
+  - Flutter (from `Pods/.symlinks/flutter/ios-release`)
+  - flutter_webview_plugin (from `Pods/.symlinks/plugins/flutter_webview_plugin-0.1.4/ios`)
+  - path_provider (from `Pods/.symlinks/plugins/path_provider-0.4.0/ios`)
+  - sqflite (from `Pods/.symlinks/plugins/sqflite-0.8.4/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Pods/.symlinks/flutter/ios-release
+  flutter_webview_plugin:
+    :path: Pods/.symlinks/plugins/flutter_webview_plugin-0.1.4/ios
+  path_provider:
+    :path: Pods/.symlinks/plugins/path_provider-0.4.0/ios
+  sqflite:
+    :path: Pods/.symlinks/plugins/sqflite-0.8.4/ios
+
+SPEC CHECKSUMS:
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  flutter_webview_plugin: 116575b48572029304775b768e9f15ebfc316274
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  path_provider: 09407919825bfe3c2deae39453b7a5b44f467873
+  sqflite: d1612813fa7db7c667bed9f1d1b508deffc56999
+
+PODFILE CHECKSUM: 70e69985f01fdaffe3180d3ae5e73472304a9371
+
+COCOAPODS: 1.4.0
