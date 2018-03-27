@@ -8,7 +8,7 @@
      <img src="https://img.shields.io/badge/awesome-%F0%9F%95%B6-purple.svg?longCache=true&style=for-the-badge" alt="Awesome Flutter" />
   </a>
   <a href="https://www.dartlang.org/">
-     <img src="https://img.shields.io/badge/Dart-2.0.0-ff69b4.svg?longCache=true&style=for-the-badge" alt="Dart" />
+     <img src="https://img.shields.io/badge/Dart-2-ff69b4.svg?longCache=true&style=for-the-badge" alt="Dart" />
   </a>
   <a href="https://flutter.io/">
      <img src="https://img.shields.io/badge/Flutter-SDK-3BB9FF.svg?longCache=true&style=for-the-badge" alt="Flutter" />
