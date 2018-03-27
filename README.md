@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=for-the-badge" alt="License MIT" />
   </a>
   <a href="https://github.com/Solido/awesome-flutter">
-     <img src="https://img.shields.io/badge/awesome--purple.svg?longCache=true&style=for-the-badge" alt="Awesome Flutter" />
+     <img src="https://img.shields.io/badge/awesome-%F0%9F%95%B6%EF%B8%8F-purple.svg?longCache=true&style=for-the-badge" alt="Awesome Flutter" />
   </a>
   <a href="https://www.dartlang.org/">
      <img src="https://img.shields.io/badge/Dart-2.0.0-ff69b4.svg?longCache=true&style=for-the-badge" alt="Dart" />
