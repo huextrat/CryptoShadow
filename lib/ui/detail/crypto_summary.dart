@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:crypto_shadow/model/cryptos.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
 import 'package:crypto_shadow/ui/detail/detail_page.dart';
-import 'package:flutter/material.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 class CryptoSummary extends StatelessWidget {

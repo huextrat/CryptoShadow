@@ -1,9 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'package:crypto_shadow/model/cryptos.dart';
 import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
-import 'package:flutter/material.dart';
+
 import 'package:crypto_shadow/theme.dart' as Theme;
-import 'package:flutter/services.dart';
+
 
 class DetailPage extends StatefulWidget {
   Crypto crypto;
@@ -180,9 +183,6 @@ class DetailPageState extends State<DetailPage> {
                   ],),
                 ),
 
-
-
-
                 new Text("\n"),
 
                 new Row(
@@ -192,14 +192,7 @@ class DetailPageState extends State<DetailPage> {
                   ],
                 ),
                 new Separator(),
-                /**
-                new Sparkline(
-                  data: dataTestSparkline,
-                  lineColor: Theme.Colors.colorWhite,
-                  pointsMode: PointsMode.all,
-                  pointSize: 6.0,
-                  pointColor: Colors.blue,
-                ),**/
+
                 new Center(
                   child: new FadeInImage(
                       placeholder: new AssetImage("assets/loading.gif"),
@@ -215,8 +208,7 @@ class DetailPageState extends State<DetailPage> {
                     new Text(_chart7d, style: Theme.TextStyles.headerTextStyle,),
                   ],
                 ),
-                //new Text(_chart7d, style: Theme.TextStyles.headerTextStyle,),
-                //new Icon(Icons.timeline, color: Theme.Colors.colorWhite,),
+
                 new Separator(),
                 new Center(
                   child: new FadeInImage(

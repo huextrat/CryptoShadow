@@ -2,17 +2,17 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:crypto_shadow/database/database_client.dart';
-import 'package:crypto_shadow/model/cryptos.dart';
+import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:crypto_shadow/model/portfolio.dart';
-import 'package:crypto_shadow/theme.dart' as Theme;
+import 'package:crypto_shadow/database/database_client.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
-import 'package:crypto_shadow/ui/portfolio/add_coin_page.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_chart.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_header.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_list.dart';
-import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
+
+import 'package:crypto_shadow/theme.dart' as Theme;
+
 
 class PortfolioPage extends StatefulWidget {
   final String title;
@@ -69,7 +69,6 @@ class PortfolioPageState extends State<PortfolioPage> {
         transitionsBuilder: (context, animation, secondaryAnimation, child) =>
         new FadeTransition(opacity: animation, child: child),
       ),);
-      //getDataFromLocal();
     }
     else {
       _controllerSymbol.clear();
@@ -77,13 +76,6 @@ class PortfolioPageState extends State<PortfolioPage> {
       _controllerPriceUSD.clear();
       Navigator.pop(context);
     }
-    /**
-        else {
-        _controllerSymbol.clear();
-        Scaffold.of(context).showSnackBar(new SnackBar(
-        content: new Text('This crypto is unknown.')
-        ));
-        }**/
   }
 
   _showDialog(BuildContext ctx) async {
@@ -269,7 +261,7 @@ class PortfolioPageState extends State<PortfolioPage> {
       String contents = await file.readAsString();
 
       await db.create();
-      portfolio = await db.fetchEveryone();
+      portfolio = await db.fetchPortfolio();
 
       this.setState(() {
         data = JSON.decode(contents);

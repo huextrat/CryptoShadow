@@ -1,11 +1,15 @@
+import 'dart:math' as Math;
+
+import 'package:flutter/material.dart';
+
+import 'home_page_body.dart';
+
 import 'package:crypto_shadow/ui/common/gradient_appbar.dart';
 import 'package:crypto_shadow/ui/news/news_page.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_page.dart';
 import 'package:crypto_shadow/ui/settings/settings_page.dart';
-import 'package:flutter/material.dart';
-import 'home_page_body.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
-import 'dart:math' as Math;
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -90,30 +94,6 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           new FadeTransition(opacity: animation, child: child),
                         ),
                       );
-                      /**
-                      _controller.reverse();
-                      Navigator.of(context).push(
-                        new PageRouteBuilder(
-
-                          pageBuilder: (_, __, ___) => new WebviewScaffold(
-                            url: "https://cryptodonate.io/101296421651150539388",
-                            appBar: new AppBar(
-
-                              centerTitle: true,
-                              title: new Text("Hugo EXTRAT", style:const TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 36.0),
-                              ),
-                              backgroundColor: Themes.Colors.appBarGradientStart,
-                            ),
-                          ),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-                          new FadeTransition(opacity: animation, child: child),
-                        ),
-                      );
-                          **/
                     }
                   },
                 ),

@@ -14,7 +14,6 @@ class PortfolioHeader extends StatelessWidget {
   @override
   Widget build(BuildContext ctx) {
     double profit = total - stake;
-    //NumberFormat nf = new NumberFormat("###,###,###");
     double percent = profit / total * 100;
     return new ClipPath(
       clipper: new ArcClipper(),
@@ -29,7 +28,6 @@ class PortfolioHeader extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     new Text(total.toStringAsFixed(2)+" $fiat", style: new TextStyle(color: Colors.white, fontSize: 38.0, fontWeight: FontWeight.w400)),
-                    //new Text("TOTAL $fiat", style: new TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 13.0))
                   ]
               ),
               new Row(

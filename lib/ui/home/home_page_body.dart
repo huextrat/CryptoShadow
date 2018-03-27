@@ -3,13 +3,18 @@ import 'dart:core';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:crypto_shadow/model/cryptos.dart';
-import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
+import 'package:path_provider/path_provider.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:crypto_shadow/theme.dart' as Theme;
+
+import 'package:crypto_shadow/model/cryptos.dart';
+import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
+
+
 import 'package:http/http.dart' as http;
+import 'package:crypto_shadow/theme.dart' as Theme;
+
 
 class HomePageBody extends StatefulWidget {
   @override

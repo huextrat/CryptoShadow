@@ -1,12 +1,17 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:crypto_shadow/theme.dart' as Theme;
-import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:timeago/timeago.dart';
+
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+
+import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
+
+import 'package:http/http.dart' as http;
+import 'package:crypto_shadow/theme.dart' as Theme;
+
 
 class NewsPage extends StatefulWidget {
   NewsPage({Key key}) : super(key: key);

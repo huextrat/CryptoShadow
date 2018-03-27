@@ -32,7 +32,7 @@ class DatabaseClient {
     return portfolio;
   }
 
-  Future fetchEveryone() async {
+  Future fetchPortfolio() async {
     List results = await _db.query("portfolio", columns: Portfolio.columns);
     List portfolio = new List();
     results.forEach((map) {

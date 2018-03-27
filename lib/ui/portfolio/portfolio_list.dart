@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:crypto_shadow/database/database_client.dart';
 import 'package:crypto_shadow/ui/portfolio/portfolio_page.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 
@@ -72,7 +73,6 @@ class PortfolioList extends StatelessWidget {
   Widget build(BuildContext ctx) {
     // ignore: undefined_operator
     coins.sort((a, b) => a['buyPriceUSD']*a['amount'] > b['buyPriceUSD']*b['amount'] ? -1 : 1);
-    NumberFormat currencyFormat = new NumberFormat.currency(decimalDigits: 2, name: 'fiat', symbol: ' $fiat ');
     List<DataRow> rows = new List.generate(coins.length, (int i) {
       Object coin = coins[i];
       return new DataRow(cells: [
