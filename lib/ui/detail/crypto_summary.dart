@@ -19,7 +19,7 @@ class CryptoSummary extends StatelessWidget {
 
     final cryptoThumbnail = new Container(
       margin: new EdgeInsets.symmetric(
-          vertical: 45.0
+          vertical: 37.0
       ),
       alignment: horizontal ? FractionalOffset.centerLeft : FractionalOffset.center,
 
@@ -37,14 +37,12 @@ class CryptoSummary extends StatelessWidget {
     );
 
     final cryptoCardContent = new Container(
-      margin: new EdgeInsets.fromLTRB(horizontal ? 39.0 : 16.0, horizontal ? 15.0 : 45.0, 16.0, 16.0),
+      margin: new EdgeInsets.fromLTRB(horizontal ? 49.0 : 16.0, horizontal ? 15.0 : 45.0, 15.0, 16.0),
       constraints: new BoxConstraints.expand(),
       child: new Column(
         crossAxisAlignment: horizontal ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: <Widget>[
-          new Container(height: 4.0),
           new Text(crypto.rank+". "+crypto.name+ " (" + crypto.symbol + ")", style: Theme.TextStyles.titleTextStyle),
-          new Container(height: 1.0),
 
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -159,14 +157,14 @@ class CryptoSummary extends StatelessWidget {
 
     final cryptoCard = new Container(
       child: cryptoCardContent,
-      height: horizontal ? 170.0 : 180.0,
+      height: horizontal ? 155.0 : 180.0,
       margin: horizontal
-          ? new EdgeInsets.only(left: 46.0)
+          ? new EdgeInsets.only(left: 45.0)
           : new EdgeInsets.only(top: 60.0),
       decoration: new BoxDecoration(
         color: new Color(0xFFFFFFFF),
         shape: BoxShape.rectangle,
-        borderRadius: new BorderRadius.circular(70.0),
+        borderRadius: new BorderRadius.circular(60.0),
         boxShadow: <BoxShadow>[
           new BoxShadow(
             color: new Color(0xFFee0979),
@@ -191,7 +189,7 @@ class CryptoSummary extends StatelessWidget {
             : null,
         child: new Container(
           margin: const EdgeInsets.symmetric(
-            vertical: 16.0,
+            vertical: 10.0,
             horizontal: 24.0,
           ),
           child: new Stack(

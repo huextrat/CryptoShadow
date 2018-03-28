@@ -42,9 +42,7 @@ class CryptoSummaryFull extends StatelessWidget {
       child: new Column(
         crossAxisAlignment: horizontal ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: <Widget>[
-          new Container(height: 4.0),
           new Text(crypto.rank+". "+crypto.name+ " (" + crypto.symbol + ")", style: Theme.TextStyles.titleTextStyle),
-          new Container(height: 1.0),
 
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -146,7 +144,7 @@ class CryptoSummaryFull extends StatelessWidget {
 
     final cryptoCard = new Container(
       child: cryptoCardContent,
-      height: horizontal ? 128.0 : 180.0,
+      height: horizontal ? 128.0 : 175.0,
       margin: horizontal
           ? new EdgeInsets.only(left: 46.0)
           : new EdgeInsets.only(top: 60.0),
