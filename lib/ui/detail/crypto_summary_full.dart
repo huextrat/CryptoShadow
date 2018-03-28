@@ -5,21 +5,21 @@ import 'package:crypto_shadow/ui/common/separator.dart';
 import 'package:crypto_shadow/ui/detail/detail_page.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
-class CryptoSummary extends StatelessWidget {
+class CryptoSummaryFull extends StatelessWidget {
 
   final Crypto crypto;
   final bool horizontal;
 
-  CryptoSummary(this.crypto, {this.horizontal = true});
+  CryptoSummaryFull(this.crypto, {this.horizontal = true});
 
-  CryptoSummary.vertical(this.crypto): horizontal = false;
+  CryptoSummaryFull.vertical(this.crypto): horizontal = false;
 
   @override
   Widget build(BuildContext context) {
 
     final cryptoThumbnail = new Container(
       margin: new EdgeInsets.symmetric(
-          vertical: 45.0
+          vertical: 23.0
       ),
       alignment: horizontal ? FractionalOffset.centerLeft : FractionalOffset.center,
 
@@ -55,18 +55,18 @@ class CryptoSummary extends StatelessWidget {
                 flex: horizontal ? 1 : 0,
 
                 child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      new Text(
-                        "\$"+crypto.formatCurrency(crypto.priceUsd).substring(0, crypto.formatCurrency(crypto.priceUsd).length - 4),
-                        style: Theme.TextStyles.commonTextStyle,
-                      ),
-                      new Text(
-                        crypto.formatCurrency(crypto.priceUsd).substring(crypto.formatCurrency(crypto.priceUsd).length - 4, crypto.formatCurrency(crypto.priceUsd).length),
-                        style: Theme.TextStyles.commonTextStyle14,
-                      ),
-                    ],
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    new Text(
+                      "\$"+crypto.formatCurrency(crypto.priceUsd).substring(0, crypto.formatCurrency(crypto.priceUsd).length - 4),
+                      style: Theme.TextStyles.commonTextStyle,
+                    ),
+                    new Text(
+                      crypto.formatCurrency(crypto.priceUsd).substring(crypto.formatCurrency(crypto.priceUsd).length - 4, crypto.formatCurrency(crypto.priceUsd).length),
+                      style: Theme.TextStyles.commonTextStyle14,
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -112,20 +112,7 @@ class CryptoSummary extends StatelessWidget {
                       ),
                     ),
 
-                    /**
-                    new Text("  7d:", style: Theme.TextStyles.smallTextStyle),
-                    new Icon(
-                      getIcon(double.parse(crypto.percentChange7d).isNegative),
-                      color: double.parse(crypto.percentChange7d).isNegative ? Colors.red : Colors.green,
-                      size: 20.0,
-                    ),
-                    new Text(
-                      (double.parse(crypto.percentChange7d).isNegative ? "" : "+") + crypto.percentChange7d + "%",
-                      style: new TextStyle(
-                        fontSize: 14.0,
-                        color: double.parse(crypto.percentChange7d).isNegative ? Colors.red : Colors.green,
-                      ),
-                    ),**/
+
                   ],
                 ),
               ),
@@ -134,10 +121,10 @@ class CryptoSummary extends StatelessWidget {
           new Expanded(
             flex: horizontal ? 1 : 0,
             child: new Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                new Text("7d:", style: Theme.TextStyles.smallTextStyle),
+                new Text("  7d:", style: Theme.TextStyles.smallTextStyle),
                 new Icon(
                   getIcon(double.parse(crypto.percentChange7d).isNegative),
                   color: double.parse(crypto.percentChange7d).isNegative ? Colors.red : Colors.green,
@@ -159,14 +146,14 @@ class CryptoSummary extends StatelessWidget {
 
     final cryptoCard = new Container(
       child: cryptoCardContent,
-      height: horizontal ? 170.0 : 180.0,
+      height: horizontal ? 128.0 : 180.0,
       margin: horizontal
           ? new EdgeInsets.only(left: 46.0)
           : new EdgeInsets.only(top: 60.0),
       decoration: new BoxDecoration(
         color: new Color(0xFFFFFFFF),
         shape: BoxShape.rectangle,
-        borderRadius: new BorderRadius.circular(70.0),
+        borderRadius: new BorderRadius.circular(80.0),
         boxShadow: <BoxShadow>[
           new BoxShadow(
             color: new Color(0xFFee0979),

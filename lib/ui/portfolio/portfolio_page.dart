@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypto_shadow/ui/portfolio/add_coin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:crypto_shadow/model/portfolio.dart';
@@ -78,6 +79,7 @@ class PortfolioPageState extends State<PortfolioPage> {
     }
   }
 
+  /**
   _showDialog(BuildContext ctx) async {
     await showDialog<String>(
       context: ctx,
@@ -95,17 +97,12 @@ class PortfolioPageState extends State<PortfolioPage> {
               ),
             ),
 
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            child: new ListView(
               children: <Widget>[
-                
-                new Container(
-                  child: new Text("Add transaction:", style: Theme.TextStyles.commonTextStyleWhite,),
-                ),
 
                 new Container(
-                  margin: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+                  margin: new EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 0.0),
+
                   decoration: new BoxDecoration(
                     color: new Color(0xFFFFFFFF),
                     shape: BoxShape.rectangle,
@@ -198,7 +195,7 @@ class PortfolioPageState extends State<PortfolioPage> {
                   ],),
                 ),
                 new Container(
-                  margin: new EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+                  margin: new EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
                   child: new MaterialButton(
                     minWidth: 200.0,
                     onPressed: () => save(),
@@ -209,6 +206,124 @@ class PortfolioPageState extends State<PortfolioPage> {
               ],
             ),
           ),
+      ),
+      ),
+    );
+  }**/
+
+  _showDialog(BuildContext ctx) async {
+    await showDialog<String>(
+      context: ctx,
+      child: new _SystemPadding(child: new AlertDialog(
+        contentPadding: const EdgeInsets.all(0.0),
+        content: new Container(
+          padding: const EdgeInsets.all(10.0),
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(
+                colors: [Theme.Colors2.appBarGradientStart, Theme.Colors2.appBarGradientEnd],
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: [0.0, 1.0],
+                tileMode: TileMode.clamp
+            ),
+          ),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new TextField(
+                  autofocus: true,
+                  controller: _controllerSymbol,
+                  maxLines: 1,
+                  onChanged: (newValue) {
+                    setState(() {
+                      if(newValue.trim().length == 0){
+                        _controllerPriceUSD.clear();
+                      }
+                      data.forEach((d){
+                        if(d["symbol"] == newValue.trim().toUpperCase()){
+                          _controllerPriceUSD.text = d["price_usd"];
+                        }
+                      });
+                    });
+                  },
+                  keyboardType: TextInputType.text,
+                  style: Theme.TextStyles.commonTextStyleWhite,
+                  decoration: new InputDecoration(
+                    labelStyle: Theme.TextStyles.commonTextStyleWhite,
+                    labelText: "Symbol",
+                    hintText: "BTC",
+                  ),
+                ),
+              ),
+              new Expanded(
+                child: new TextField(
+                  controller: _controllerPriceUSD,
+                  maxLines: 1,
+                  keyboardType: TextInputType.number,
+                  style: Theme.TextStyles.commonTextStyleWhite,
+
+                  decoration: new InputDecoration(
+                    labelStyle: Theme.TextStyles.commonTextStyleWhite,
+                    labelText: "Price",
+                    hintText: "10000.0",
+                  ),
+                ),
+              ),
+              new Expanded(
+                child: new TextField(
+                  controller: _controllerAmount,
+                  maxLines: 1,
+                  keyboardType: TextInputType.number,
+                  style: Theme.TextStyles.commonTextStyleWhite,
+
+                  decoration: new InputDecoration(
+                    labelStyle: Theme.TextStyles.commonTextStyleWhite,
+                    labelText: "Amount",
+                    hintText: "1.2",
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        /**
+        content: new Row(
+          children: <Widget>[
+            new Expanded(
+              child: new TextField(
+                autofocus: true,
+                decoration: new InputDecoration(
+                    labelText: 'Symbol', hintText: 'BTC'),
+              ),
+            ),
+            new Expanded(
+              child: new TextField(
+                autofocus: true,
+                decoration: new InputDecoration(
+                    labelText: 'Price USD', hintText: '1000.2'),
+              ),
+            ),
+            new Expanded(
+              child: new TextField(
+                autofocus: true,
+                decoration: new InputDecoration(
+                    labelText: 'Amount Bought', hintText: '1.32'),
+              ),
+            ),
+          ],
+        ),**/
+        actions: <Widget>[
+          new FlatButton(
+              child: const Text('CANCEL'),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
+          new FlatButton(
+              child: const Text('ADD'),
+              onPressed: () => save(),
+          ),
+        ],
       ),
       ),
     );

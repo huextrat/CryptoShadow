@@ -1,3 +1,4 @@
+import 'package:crypto_shadow/model/cryptos.dart';
 import 'package:flutter/material.dart';
 
 import 'package:crypto_shadow/database/database_client.dart';
@@ -73,15 +74,17 @@ class PortfolioList extends StatelessWidget {
   Widget build(BuildContext ctx) {
     // ignore: undefined_operator
     coins.sort((a, b) => a['buyPriceUSD']*a['amount'] > b['buyPriceUSD']*b['amount'] ? -1 : 1);
+
+
     List<DataRow> rows = new List.generate(coins.length, (int i) {
       Object coin = coins[i];
       return new DataRow(cells: [
         // ignore: undefined_operator
         new DataCell(new Text(coin['symbol'].toString().toUpperCase()), onTap: ()=> _showDialog(coin, ctx),),//RemovePortfolioId.removeIdPortfolio(int.parse(coin['id']), ctx),),
         // ignore: undefined_operator
-        new DataCell(new Text(coin['amount'].toStringAsFixed(8)), onTap: ()=> _showDialog(coin, ctx),),
+        new DataCell(new Text(coin['amount'].toStringAsFixed(6) + " * " + coin['buyPriceUSD'].toStringAsFixed(6)), onTap: ()=> _showDialog(coin, ctx),),
         // ignore: undefined_operator
-        new DataCell(new Text(coin['buyPriceUSD'].toStringAsFixed(6)), onTap: ()=> _showDialog(coin, ctx),showEditIcon: true),
+        //new DataCell(new Text(coin['buyPriceUSD'].toStringAsFixed(6)), onTap: ()=> _showDialog(coin, ctx),),
       ]);
     });
 
@@ -89,11 +92,12 @@ class PortfolioList extends StatelessWidget {
 
     return new DataTable(
         columns: [
-          new DataColumn(label: new Text('Symbol')),
-          new DataColumn(label: new Text('Amount')),
-          new DataColumn(label: new Text('Buy Price USD')),
+          new DataColumn(label: new Text('Symbol'), numeric: false, tooltip: "Crypto symbol"),
+          new DataColumn(label: new Text('Amount * Buy Price USD'), numeric: false, tooltip: "Amount * Buy Price USD"),
+          //new DataColumn(label: new Text('Buy Price USD'), numeric: false, tooltip: "Buy price USD"),
         ],
-        rows: rows
+        rows: rows,
+
     );
   }
 }

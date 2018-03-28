@@ -1,3 +1,4 @@
+import 'package:crypto_shadow/ui/detail/crypto_summary_full.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -67,7 +68,7 @@ class DetailPageState extends State<DetailPage> {
       child: new ListView(
         padding: new EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 32.0),
         children: <Widget>[
-          new CryptoSummary(widget.crypto,
+          new CryptoSummaryFull(widget.crypto,
             horizontal: false,
           ),
           new Container(

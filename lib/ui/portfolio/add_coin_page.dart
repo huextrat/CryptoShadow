@@ -122,9 +122,9 @@ class AddCoinPageState extends State<AddCoinPage> {
           ),
         ),
 
-        child: new Column(
+        child: new ListView(
           children: <Widget>[
-            new GradientAppBarWithBack("Add Portfolio"),
+            new GradientAppBarWithBack(""),
 
             new Container(
               margin: new EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
@@ -220,7 +220,7 @@ class AddCoinPageState extends State<AddCoinPage> {
               ],),
             ),
             new Container(
-              margin: new EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+              margin: new EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 0.0),
               child: new MaterialButton(
                 minWidth: 200.0,
                 onPressed: () => save(),
