@@ -33,7 +33,7 @@
   Created with <a href="https://flutter.io/">flutter.io</a>
 </div>
 
-<div>
+<div align="center">
   <img src="https://hugoextrat.com/images/github/Screen_1.png" height="540"/>
   <img src="https://hugoextrat.com/images/github/Screen_2.png" height="540"/>
   <img src="https://hugoextrat.com/images/github/Screen_3.png" height="540"/>
