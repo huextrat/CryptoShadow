@@ -26,9 +26,28 @@ class Crypto {
 
     this.priceUsd = double.parse(this.priceUsd).toStringAsFixed(4);
     this.volumeUsd = double.parse(this.volumeUsd) >= 1000000 ? (double.parse(this.volumeUsd)/1000000).toStringAsFixed(2) : this.volumeUsd;
-    this.percentChange1h = double.parse(this.percentChange1h).toStringAsFixed(1);
-    this.percentChange24h = double.parse(this.percentChange24h).toStringAsFixed(1);
-    this.percentChange7d = double.parse(this.percentChange7d).toStringAsFixed(1);
+
+    if(this.percentChange1h!=null){
+      this.percentChange1h = double.parse(this.percentChange1h).toStringAsFixed(1);
+    }
+    else {
+      this.percentChange1h = double.parse("0.0").toStringAsFixed(1);
+    }
+
+    if(this.percentChange24h!=null){
+      this.percentChange24h = double.parse(this.percentChange24h).toStringAsFixed(1);
+    }
+    else {
+      this.percentChange24h = double.parse(this.percentChange1h).toStringAsFixed(1);
+    }
+
+    if(this.percentChange7d!=null){
+      this.percentChange7d = double.parse(this.percentChange7d).toStringAsFixed(1);
+    }
+    else {
+      this.percentChange7d = double.parse(this.percentChange24h).toStringAsFixed(1);
+    }
+
     this.priceEur = double.parse(this.priceEur).toStringAsFixed(4);
     this.volumeEur = double.parse(this.volumeEur) >= 1000000 ? (double.parse(this.volumeEur)/1000000).toStringAsFixed(2) : this.volumeEur;
   }
