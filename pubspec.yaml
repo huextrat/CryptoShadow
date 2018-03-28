@@ -33,11 +33,13 @@ flutter:
   assets:
     - assets/loading.gif
     - assets/CryptoShadow_logo.png
+    - assets/img/$pac.png
     - assets/img/act.png
     - assets/img/ada.png
     - assets/img/adx.png
     - assets/img/ae.png
     - assets/img/agi.png
+    - assets/img/agrs.png
     - assets/img/aion.png
     - assets/img/amb.png
     - assets/img/amp.png
@@ -46,6 +48,7 @@ flutter:
     - assets/img/ardr.png
     - assets/img/ark.png
     - assets/img/arn.png
+    - assets/img/ary.png
     - assets/img/ast.png
     - assets/img/atm.png
     - assets/img/bat.png
@@ -58,17 +61,21 @@ flutter:
     - assets/img/bcpt.png
     - assets/img/bdl.png
     - assets/img/bela.png
+    - assets/img/bix.png
     - assets/img/blcn.png
     - assets/img/blk.png
     - assets/img/block.png
+    - assets/img/blz.png
     - assets/img/bnb.png
     - assets/img/bnt.png
     - assets/img/bnty.png
     - assets/img/bpt.png
     - assets/img/bq.png
     - assets/img/bqx.png
+    - assets/img/brd.png
     - assets/img/btc.png
     - assets/img/btcd.png
+    - assets/img/btcp.png
     - assets/img/btcz.png
     - assets/img/btg.png
     - assets/img/btm.png
@@ -77,13 +84,17 @@ flutter:
     - assets/img/burst.png
     - assets/img/cdn.png
     - assets/img/cdt.png
+    - assets/img/chips.png
     - assets/img/clam.png
     - assets/img/cloak.png
+    - assets/img/cmt.png
     - assets/img/cnd.png
     - assets/img/cnx.png
     - assets/img/cny.png
+    - assets/img/cob.png
     - assets/img/cred.png
     - assets/img/crpt.png
+    - assets/img/ctr.png
     - assets/img/cvc.png
     - assets/img/dash.png
     - assets/img/dat.png
@@ -92,14 +103,18 @@ flutter:
     - assets/img/dcn.png
     - assets/img/dcr.png
     - assets/img/dent.png
+    - assets/img/dew.png
     - assets/img/dgb.png
     - assets/img/dgd.png
     - assets/img/dlt.png
     - assets/img/dnt.png
     - assets/img/doge.png
     - assets/img/drgn.png
+    - assets/img/dta.png
+    - assets/img/dtr.png
     - assets/img/ebst.png
     - assets/img/edg.png
+    - assets/img/edo.png
     - assets/img/edoge.png
     - assets/img/elf.png
     - assets/img/elix.png
@@ -109,6 +124,7 @@ flutter:
     - assets/img/eng.png
     - assets/img/enj.png
     - assets/img/eos.png
+    - assets/img/equa.png
     - assets/img/etc.png
     - assets/img/eth.png
     - assets/img/ethos.png
@@ -131,6 +147,7 @@ flutter:
     - assets/img/gbp.png
     - assets/img/gbx.png
     - assets/img/gbyte.png
+    - assets/img/generic.png
     - assets/img/gno.png
     - assets/img/gnt.png
     - assets/img/grc.png
@@ -141,14 +158,19 @@ flutter:
     - assets/img/gxs.png
     - assets/img/hpb.png
     - assets/img/hsr.png
+    - assets/img/html.png
     - assets/img/huc.png
     - assets/img/hush.png
     - assets/img/icn.png
     - assets/img/icx.png
     - assets/img/ignis.png
+    - assets/img/ink.png
     - assets/img/ins.png
+    - assets/img/ion.png
     - assets/img/iop.png
     - assets/img/iost.png
+    - assets/img/itc.png
+    - assets/img/jnt.png
     - assets/img/jpy.png
     - assets/img/kcs.png
     - assets/img/kin.png
@@ -167,11 +189,14 @@ flutter:
     - assets/img/mana.png
     - assets/img/mcap.png
     - assets/img/mco.png
+    - assets/img/mda.png
+    - assets/img/mds.png
     - assets/img/med.png
     - assets/img/miota.png
     - assets/img/mkr.png
     - assets/img/mln.png
     - assets/img/mnx.png
+    - assets/img/mod.png
     - assets/img/mona.png
     - assets/img/mth.png
     - assets/img/mtl.png
@@ -179,6 +204,7 @@ flutter:
     - assets/img/nano.png
     - assets/img/nas.png
     - assets/img/nav.png
+    - assets/img/ncash.png
     - assets/img/ndz.png
     - assets/img/nebl.png
     - assets/img/neo.png
@@ -187,11 +213,13 @@ flutter:
     - assets/img/nlc2.png
     - assets/img/nlg.png
     - assets/img/nmc.png
+    - assets/img/nuls.png
     - assets/img/nxs.png
     - assets/img/nxt.png
     - assets/img/oax.png
     - assets/img/omg.png
     - assets/img/omni.png
+    - assets/img/ont.png
     - assets/img/ost.png
     - assets/img/ox.png
     - assets/img/pac.png
@@ -202,6 +230,7 @@ flutter:
     - assets/img/pirl.png
     - assets/img/pivx.png
     - assets/img/plr.png
+    - assets/img/poa.png
     - assets/img/poe.png
     - assets/img/poly.png
     - assets/img/pot.png
@@ -214,6 +243,7 @@ flutter:
     - assets/img/qash.png
     - assets/img/qiwi.png
     - assets/img/qlc.png
+    - assets/img/qrl.png
     - assets/img/qsp.png
     - assets/img/qtum.png
     - assets/img/r.png
@@ -235,10 +265,13 @@ flutter:
     - assets/img/sberbank.png
     - assets/img/sc.png
     - assets/img/sky.png
+    - assets/img/sls.png
     - assets/img/smart.png
     - assets/img/sngls.png
+    - assets/img/snm.png
     - assets/img/snt.png
     - assets/img/sonm.png
+    - assets/img/spank.png
     - assets/img/sphtx.png
     - assets/img/srn.png
     - assets/img/start.png
@@ -250,19 +283,25 @@ flutter:
     - assets/img/sys.png
     - assets/img/taas.png
     - assets/img/tau.png
+    - assets/img/tel.png
+    - assets/img/theta.png
     - assets/img/tix.png
     - assets/img/tkn.png
+    - assets/img/tnb.png
     - assets/img/tnc.png
     - assets/img/tnt.png
     - assets/img/trig.png
     - assets/img/trx.png
     - assets/img/tzc.png
     - assets/img/ubq.png
+    - assets/img/unity.png
     - assets/img/usd.png
     - assets/img/usdt.png
+    - assets/img/utk.png
     - assets/img/ven.png
     - assets/img/veri.png
     - assets/img/via.png
+    - assets/img/vib.png
     - assets/img/vibe.png
     - assets/img/vivo.png
     - assets/img/vrc.png
@@ -270,8 +309,13 @@ flutter:
     - assets/img/wabi.png
     - assets/img/waves.png
     - assets/img/wax.png
+    - assets/img/wgr.png
+    - assets/img/wings.png
+    - assets/img/wpr.png
     - assets/img/wtc.png
+    - assets/img/xas.png
     - assets/img/xbc.png
+    - assets/img/xby.png
     - assets/img/xcp.png
     - assets/img/xdn.png
     - assets/img/xem.png
