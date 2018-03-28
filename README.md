@@ -34,15 +34,14 @@
 </div>
 
 <div>
-  <img src="https://hugoextrat.com/images/github/CryptoShadow.png" height="540"/>
-  <img src="https://hugoextrat.com/images/github/CryptoShadow3.png" height="540"/>
-  <img src="https://hugoextrat.com/images/github/CryptoShadow4.png" height="540"/>
-  <img src="https://hugoextrat.com/images/github/CryptoShadow5.png" height="540"/>
-
   <img src="https://hugoextrat.com/images/github/Screen_1.png" height="540"/>
   <img src="https://hugoextrat.com/images/github/Screen_2.png" height="540"/>
   <img src="https://hugoextrat.com/images/github/Screen_3.png" height="540"/>
   <img src="https://hugoextrat.com/images/github/Screen_4.png" height="540"/>
+  <img src="https://hugoextrat.com/images/github/CryptoShadow.png" height="540"/>
+  <img src="https://hugoextrat.com/images/github/CryptoShadow3.png" height="540"/>
+  <img src="https://hugoextrat.com/images/github/CryptoShadow4.png" height="540"/>
+  <img src="https://hugoextrat.com/images/github/CryptoShadow5.png" height="540"/>
 </div>
 
 ### TODO
