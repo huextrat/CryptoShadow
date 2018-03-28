@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypto_shadow/ui/common/separator_white.dart';
 import 'package:crypto_shadow/ui/portfolio/add_coin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -255,6 +256,7 @@ class PortfolioPageState extends State<PortfolioPage> {
                   ),
                 ),
               ),
+              new SeparatorWhite(),
               new Expanded(
                 child: new TextField(
                   controller: _controllerPriceUSD,
@@ -269,6 +271,7 @@ class PortfolioPageState extends State<PortfolioPage> {
                   ),
                 ),
               ),
+              new SeparatorWhite(),
               new Expanded(
                 child: new TextField(
                   controller: _controllerAmount,
