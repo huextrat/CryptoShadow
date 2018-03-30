@@ -27,23 +27,7 @@ class HomePageBodyState extends State<HomePageBody> {
   List data;
   bool isLoading = true;
 
-  DatabaseClient db = new DatabaseClient();
-  List fiat;
-  String fiatString = "";
-
   Future<bool> getDataFromAPI() async {
-
-    await db.createFIAT();
-    fiat = await db.fetchFIAT();
-
-    this.setState(() {
-      if(fiat==null){
-        fiatString = "EUR";
-      }
-      else {
-        fiatString = fiat.elementAt(0).toString().toUpperCase();
-      }
-    });
 
     var response = await http.get(
       Uri.encodeFull("https://api.coinmarketcap.com/v1/ticker/?convert="+"EUR"+"&limit=150"),
