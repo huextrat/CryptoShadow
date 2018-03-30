@@ -3,6 +3,7 @@ import 'dart:core';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypto_shadow/database/database_client.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -26,16 +27,33 @@ class HomePageBodyState extends State<HomePageBody> {
   List data;
   bool isLoading = true;
 
+  DatabaseClient db = new DatabaseClient();
+  List fiat;
+  String fiatString = "";
+
   Future<bool> getDataFromAPI() async {
+
+    await db.createFIAT();
+    fiat = await db.fetchFIAT();
+
+    this.setState(() {
+      if(fiat==null){
+        fiatString = "EUR";
+      }
+      else {
+        fiatString = fiat.elementAt(0).toString().toUpperCase();
+      }
+    });
+
     var response = await http.get(
-      Uri.encodeFull("https://api.coinmarketcap.com/v1/ticker/?convert=EUR&limit=100"),
+      Uri.encodeFull("https://api.coinmarketcap.com/v1/ticker/?convert="+"EUR"+"&limit=100"),
       headers: {
         "Accept": "application/json"
       },
     );
 
     this.setState(() {
-      data = JSON.decode(response.body);
+      data = json.decode(response.body);
       isLoading = false;
     });
     String content = response.body;
@@ -55,7 +73,7 @@ class HomePageBodyState extends State<HomePageBody> {
       String contents = await file.readAsString();
 
       this.setState(() {
-        data = JSON.decode(contents);
+        data = json.decode(contents);
         isLoading = false;
       });
 

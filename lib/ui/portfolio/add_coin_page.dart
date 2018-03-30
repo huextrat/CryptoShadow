@@ -43,7 +43,7 @@ class AddCoinPageState extends State<AddCoinPage> {
       String contents = await file.readAsString();
 
       this.setState(() {
-        data = JSON.decode(contents);
+        data = json.decode(contents);
       });
 
       return true;

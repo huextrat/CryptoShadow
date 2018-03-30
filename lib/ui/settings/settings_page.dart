@@ -1,11 +1,7 @@
-import 'dart:async';
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 
 import 'package:crypto_shadow/ui/common/gradient_appbar_with_back.dart';
 
-import 'package:http/http.dart' as http;
 import 'package:crypto_shadow/theme.dart' as Theme;
 
 
@@ -18,29 +14,9 @@ class SettingsPageState extends State<SettingsPage> {
 
   Map data;
 
-  Future getData() async {
-    var response = await http.get(
-        Uri.encodeFull(
-            'https://openexchangerates.org/api/currencies.json'),
-        headers: {
-          "Accept": "application/json",
-        });
-
-    this.setState(() {
-      data = JSON.decode(response.body);
-    });
-
-    return "Success!";
-  }
-
   @override
   void initState() {
     super.initState();
-    this.getData();
-  }
-
-  refresh() async {
-    await getData();
   }
 
   @override
@@ -63,19 +39,26 @@ class SettingsPageState extends State<SettingsPage> {
           children: <Widget>[
             new GradientAppBarWithBack("Settings"),
 
-
             new Container(
-              margin: new EdgeInsets.fromLTRB(10.0, 100.0, 10.0, 300.0),
+              margin: new EdgeInsets.fromLTRB(5.0, 100.0, 5.0, 0.0),
 
               decoration: new BoxDecoration(
                 color: new Color(0xFFFFFFFF),
                 shape: BoxShape.rectangle,
-                borderRadius: new BorderRadius.circular(30.0),
+                borderRadius: new BorderRadius.circular(10.0),
                 boxShadow: <BoxShadow>[
                   new BoxShadow(
                     color: new Color(0xFFee0979),
                     blurRadius: 10.0,
                     offset: new Offset(0.0, 10.0),
+                  ),
+                ],
+              ),
+              child: new Row(
+                children: <Widget>[
+                  new Container(
+                    padding: new EdgeInsets.fromLTRB(15.0, 10.0, 5.0, 10.0),
+                    child: new Text("Version: 2.0.0",),
                   ),
                 ],
               ),

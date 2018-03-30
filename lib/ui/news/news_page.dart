@@ -34,7 +34,7 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
           "Accept": "application/json",
           "X-Api-Key": apiKey,
         });
-    var localData = JSON.decode(response.body);
+    var localData = json.decode(response.body);
     if (localData != null && localData["articles"] != null) {
       localData["articles"].sort((a, b) =>
       a["publishedAt"] != null && b["publishedAt"] != null
