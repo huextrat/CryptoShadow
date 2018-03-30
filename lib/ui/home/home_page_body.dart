@@ -46,7 +46,7 @@ class HomePageBodyState extends State<HomePageBody> {
     });
 
     var response = await http.get(
-      Uri.encodeFull("https://api.coinmarketcap.com/v1/ticker/?convert="+"EUR"+"&limit=100"),
+      Uri.encodeFull("https://api.coinmarketcap.com/v1/ticker/?convert="+"EUR"+"&limit=150"),
       headers: {
         "Accept": "application/json"
       },

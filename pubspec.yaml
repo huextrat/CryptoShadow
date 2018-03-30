@@ -12,6 +12,8 @@ dependencies:
   timeago: "^1.2.0"
   flutter_webview_plugin: "^0.1.4"
   flutter_circular_chart: "^0.0.2"
+  share: "^0.4.0"
+  launch_review: "^1.0.1"
   cupertino_icons: ^0.1.0
 
 dev_dependencies:
