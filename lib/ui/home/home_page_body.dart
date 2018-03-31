@@ -3,7 +3,6 @@ import 'dart:core';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:crypto_shadow/database/database_client.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -30,7 +29,7 @@ class HomePageBodyState extends State<HomePageBody> {
   Future<bool> getDataFromAPI() async {
 
     var response = await http.get(
-      Uri.encodeFull("https://api.coinmarketcap.com/v1/ticker/?convert="+"EUR"+"&limit=150"),
+      Uri.encodeFull("https://api.coinmarketcap.com/v1/ticker/?convert="+"EUR"+"&limit=100"),
       headers: {
         "Accept": "application/json"
       },
@@ -74,11 +73,15 @@ class HomePageBodyState extends State<HomePageBody> {
     return true;
   }
 
+  void loadData() async {
+    await getDataFromAPI();
+    await getData();
+  }
+
   @override
   void initState() {
     super.initState();
-    getDataFromAPI();
-    getData();
+    loadData();
   }
 
   Crypto getCoin(int index) {
@@ -110,7 +113,6 @@ class HomePageBodyState extends State<HomePageBody> {
   @override
   Widget build(BuildContext context) {
     return new Expanded(
-
       child: new Container(
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
@@ -134,7 +136,7 @@ class HomePageBodyState extends State<HomePageBody> {
                 sliver: new SliverList(
                   delegate: new SliverChildBuilderDelegate(
                         (context, index) => new CryptoSummary(getCoin(index)),
-                    childCount: data==null ? 200 : data.length,
+                    childCount: data==null ? 100 : data.length,
                   ),
                 ),
               ),

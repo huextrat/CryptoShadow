@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:crypto_shadow/model/cryptos.dart';
-import 'package:crypto_shadow/ui/detail/crypto_summary.dart';
 import 'package:crypto_shadow/ui/common/separator.dart';
 
 import 'package:crypto_shadow/theme.dart' as Theme;
@@ -68,6 +67,7 @@ class DetailPageState extends State<DetailPage> {
       child: new ListView(
         padding: new EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 32.0),
         children: <Widget>[
+
           new CryptoSummaryFull(widget.crypto,
             horizontal: false,
           ),
@@ -81,7 +81,7 @@ class DetailPageState extends State<DetailPage> {
                   style: Theme.TextStyles.headerTextStyle,),
                 new Separator(),
                 new Text(
-                    "\$"+widget.crypto.formatCurrency(widget.crypto.marketCapUsd).substring(0, widget.crypto.formatCurrency(widget.crypto.marketCapUsd).length - 3)+"\n\n", style: Theme.TextStyles.commonTextStyleWhite),
+                    "\$"+widget.crypto.formatCurrency(widget.crypto.marketCapUsd).substring(0, widget.crypto.formatCurrency(widget.crypto.marketCapUsd).length - 3)+"\n", style: Theme.TextStyles.commonTextStyleWhite),
 
                 new Text(_comparator,
                   style: Theme.TextStyles.headerTextStyle,),
@@ -235,6 +235,8 @@ class DetailPageState extends State<DetailPage> {
                     fadeOutCurve: Curves.decelerate,
                   ),
                 ),
+                new Padding(padding: new EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 50.0),
+          )
               ],
             ),
           ),

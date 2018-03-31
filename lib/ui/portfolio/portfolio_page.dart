@@ -86,7 +86,7 @@ class PortfolioPageState extends State<PortfolioPage> {
       child: new _SystemPadding(child: new AlertDialog(
         contentPadding: const EdgeInsets.all(0.0),
         content: new Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.fromLTRB(5.0, 20.0, 5.0, 20.0),
           decoration: new BoxDecoration(
             gradient: new LinearGradient(
                 colors: [Theme.Colors2.appBarGradientStart, Theme.Colors2.appBarGradientEnd],
@@ -176,6 +176,8 @@ class PortfolioPageState extends State<PortfolioPage> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return new Scaffold(
       body: new Column(
         children: [
@@ -264,8 +266,8 @@ class PortfolioPageState extends State<PortfolioPage> {
 
   @override
   void initState() {
-    super.initState();
     getDataFromLocal();
+    super.initState();
   }
 
 }

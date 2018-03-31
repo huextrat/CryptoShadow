@@ -67,7 +67,7 @@ class SettingsPageState extends State<SettingsPage> {
                 children: <Widget>[
                   new Container(
                     padding: new EdgeInsets.fromLTRB(150.0, 10.0, 150.0, 10.0),
-                    child: new Text("Version: 2.0.1",),
+                    child: new Text("Version: 2.0.2",),
                   ),
                   new Separator(),
                 ],

@@ -8,6 +8,7 @@ dependencies:
     sdk: flutter
   intl: 0.15.2
   sqflite: 0.8.4
+  firebase_analytics: "^0.3.0"
   path_provider: "^0.4.0"
   timeago: "^1.2.0"
   flutter_webview_plugin: "^0.1.4"

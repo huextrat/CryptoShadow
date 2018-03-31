@@ -18,20 +18,20 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
+
   AnimationController _controller;
+  static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.payment];
 
   @override
   void initState(){
+    super.initState();
     _controller = new AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
   }
-
-  static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.payment];
 
   @override
   Widget build(BuildContext context) {
 
     return new Scaffold(
-
       body: new Column(
         children: <Widget>[
           new GradientAppBar("CryptoShadow"),

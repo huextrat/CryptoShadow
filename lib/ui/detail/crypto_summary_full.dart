@@ -26,7 +26,7 @@ class CryptoSummaryFull extends StatelessWidget {
       child: new Hero(
         tag: "crypto-hero-${crypto.id}",
         child: new FadeInImage(
-          placeholder: new AssetImage(""),
+          placeholder: new AssetImage("assets/CryptoShadow_logo.png"),
           image: new AssetImage("assets/img/"+crypto.symbol.toLowerCase()+".png"),
           fadeOutDuration: new Duration(milliseconds: 200),
           fadeOutCurve: Curves.decelerate,

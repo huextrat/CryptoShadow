@@ -32,8 +32,8 @@ android {
         applicationId "com.huextrat.cryptoshadow"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 15
-        versionName "2.0.1"
+        versionCode 16
+        versionName "2.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -76,3 +76,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
+apply plugin: 'com.google.gms.google-services'

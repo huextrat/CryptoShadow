@@ -19,7 +19,9 @@ class NewsPage extends StatefulWidget {
   NewsPageState createState() => new NewsPageState();
 }
 
+
 class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin {
+
 
   var newsSelection = "crypto-coins-news";
   String apiKey = "97ec2e1bd66c4a83bea5a50471589972";
@@ -51,8 +53,8 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
 
   @override
   void initState() {
-    super.initState();
     this.getData();
+    super.initState();
   }
 
   refresh() async {
