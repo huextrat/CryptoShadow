@@ -33,7 +33,7 @@
   <strong>CryptoCurrency Tracker for Android & iOS</strong>
 </div>
 <div align="center">
-  Created with <a href="https://flutter.io/">flutter.io</a>
+  Built with <a href="https://flutter.io/">flutter.io</a>
 </div>
 
 <div align="center">
