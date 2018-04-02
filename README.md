@@ -17,8 +17,8 @@
 
 <div align="center">
   <h3>
-    <a href="https://hugoextrat.com">
-      www.hugoextrat.com
+    <a href="https://domingo.tv">
+      www.domingo.tv
     </a>
   </h3>
 </div>
@@ -27,10 +27,10 @@
   <a href='https://play.google.com/store/apps/details?id=com.huextrat.domingo'><img width="320" height="130" alt='Get in on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
 </div>
 <div align="center">
-  <strong>CryptoCurrency Tracker for Android & iOS</strong>
+  <strong>DominGo</strong>
 </div>
 <div align="center">
-  Created with <a href="https://flutter.io/">flutter.io</a>
+  Built with <a href="https://flutter.io/">flutter.io</a>
 </div>
 
 <div align="center">
