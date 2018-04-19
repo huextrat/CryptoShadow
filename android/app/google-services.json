@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "563182876407",
+    "firebase_url": "https://cryptoshadow-huextrat.firebaseio.com",
+    "project_id": "cryptoshadow-huextrat",
+    "storage_bucket": "cryptoshadow-huextrat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563182876407:android:249d9530b31e0e6c",
+        "android_client_info": {
+          "package_name": "com.huextrat.cryptoshadow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563182876407-amkcgbutu0td9ps0039oh85a02u26ubo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.huextrat.cryptoshadow",
+            "certificate_hash": "d03a44c20c3d7d0208954dbeb2ba3d6cb3111663"
+          }
+        },
+        {
+          "client_id": "563182876407-oen4ofntai19mahvip3khik1t58eoo8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzw8TN_0XWHaFXHlypG2RGTDIo4mOlHSo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563182876407-3n35bseqovngm4g2h0nstvn9j5thh0ai.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.huextrat.cryptoshadow"
+              }
+            },
+            {
+              "client_id": "563182876407-oen4ofntai19mahvip3khik1t58eoo8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
