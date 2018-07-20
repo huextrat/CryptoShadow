@@ -1,5 +1,9 @@
 <h1 align="center">CryptoShadow <img src="https://hugoextrat.com/images/ic_launcher.png" alt="Flutter" width="50" height="50" /></h1>
 
+<h2 align="center">
+  Attention: this application is depreciated with the new version of flutter and dart, changes must be made
+</h2>
+
 <div align="center">
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=for-the-badge" alt="License MIT" />
