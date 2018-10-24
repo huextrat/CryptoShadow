@@ -14,7 +14,7 @@
      <img src="https://img.shields.io/badge/Flutter-SDK-3BB9FF.svg?longCache=true&style=for-the-badge" alt="Flutter" />
   </a>
    <a href="https://play.google.com/store/apps/details?id=com.huextrat.cryptoshadow">
-     <img src="https://img.shields.io/badge/version-2.0.2-pink.svg?longCache=true&style=for-the-badge" alt="Flutter" />
+     <img src="https://img.shields.io/badge/version-2.1-pink.svg?longCache=true&style=for-the-badge" alt="Flutter" />
   </a>
 </div>
 
