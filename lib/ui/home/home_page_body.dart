@@ -73,7 +73,7 @@ class HomePageBodyState extends State<HomePageBody> {
     return true;
   }
 
-  void loadData() async {
+  Future loadData() async {
     await getDataFromAPI();
     await getData();
   }
@@ -85,28 +85,31 @@ class HomePageBodyState extends State<HomePageBody> {
   }
 
   Crypto getCoin(int index) {
-    return new Crypto(
-      data[index]["id"],
-      data[index]["name"],
-      data[index]["symbol"],
-      data[index]["rank"],
-      data[index]["price_usd"],
-      data[index]["price_btc"],
-      data[index]["24h_volume_usd"],
-      data[index]["market_cap_usd"],
-      data[index]["available_supply"],
-      data[index]["total_supply"],
-      data[index]["percent_change_1h"],
-      data[index]["percent_change_24h"],
-      data[index]["percent_change_7d"],
-      data[index]["last_updated"],
-      data[index]["price_eur"],
-      data[index]["24h_volume_eur"],
-      data[index]["market_cap_eur"],
-    );
+    if(data != null){
+      return new Crypto(
+        data[index]["id"],
+        data[index]["name"],
+        data[index]["symbol"],
+        data[index]["rank"],
+        data[index]["price_usd"],
+        data[index]["price_btc"],
+        data[index]["24h_volume_usd"],
+        data[index]["market_cap_usd"],
+        data[index]["available_supply"],
+        data[index]["total_supply"],
+        data[index]["percent_change_1h"],
+        data[index]["percent_change_24h"],
+        data[index]["percent_change_7d"],
+        data[index]["last_updated"],
+        data[index]["price_eur"],
+        data[index]["24h_volume_eur"],
+        data[index]["market_cap_eur"],
+      );
+    }
+
   }
 
-  refresh() async {
+  Future refresh() async {
     await getDataFromAPI();
   }
 
@@ -134,9 +137,12 @@ class HomePageBodyState extends State<HomePageBody> {
                 padding: const EdgeInsets.symmetric(vertical: 1.0),
 
                 sliver: new SliverList(
-                  delegate: new SliverChildBuilderDelegate(
+                  delegate: data != null ? new SliverChildBuilderDelegate(
                         (context, index) => new CryptoSummary(getCoin(index)),
                     childCount: data==null ? 100 : data.length,
+                  ) : new SliverChildBuilderDelegate(
+                        (context, index) => new CircularProgressIndicator(),
+                    childCount: 0,
                   ),
                 ),
               ),

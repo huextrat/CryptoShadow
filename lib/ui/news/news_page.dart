@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import 'package:timeago/timeago.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
@@ -37,18 +37,11 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
           "X-Api-Key": apiKey,
         });
     var localData = json.decode(response.body);
-    if (localData != null && localData["articles"] != null) {
-      localData["articles"].sort((a, b) =>
-      a["publishedAt"] != null && b["publishedAt"] != null
-          ? b["publishedAt"].compareTo(a["publishedAt"])
-          : null);
-    }
 
     this.setState(() {
       data = localData;
     });
 
-    return "Success!";
   }
 
   @override
@@ -57,7 +50,7 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
     super.initState();
   }
 
-  refresh() async {
+  Future refresh() async {
     await getData();
   }
 
@@ -116,7 +109,7 @@ class NewsPageState extends State<NewsPage> with SingleTickerProviderStateMixin 
                                           padding:
                                               new EdgeInsets.only(left: 4.0),
                                           child: new Text(
-                                            timeAgo(DateTime.parse(
+                                            timeago.format(DateTime.parse(
                                                 data["articles"][index]
                                                     ["publishedAt"])),
                                             style: new TextStyle(

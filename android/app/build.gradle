@@ -32,8 +32,8 @@ android {
         applicationId "com.huextrat.cryptoshadow"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 17
-        versionName "2.0.3"
+        versionCode 18
+        versionName "2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -44,14 +44,12 @@ android {
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
             storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-             **/
+            storePassword keystoreProperties['storePassword']**/
         }
     }
     buildTypes {
         release {
             //signingConfig signingConfigs.release
-            // TODO: Fix minifyEnabled !!!
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -77,3 +75,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'

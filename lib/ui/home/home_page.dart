@@ -6,7 +6,6 @@ import 'home_page_body.dart';
 
 import 'package:crypto_shadow/ui/common/gradient_appbar.dart';
 import 'package:crypto_shadow/ui/news/news_page.dart';
-import 'package:crypto_shadow/ui/portfolio/portfolio_page.dart';
 import 'package:crypto_shadow/ui/settings/settings_page.dart';
 import 'package:crypto_shadow/theme.dart' as Theme;
 
@@ -20,7 +19,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 
   AnimationController _controller;
-  static const List<IconData> icons = const [Icons.settings, Icons.view_list, Icons.payment];
+  static const List<IconData> icons = const [Icons.settings, Icons.view_list];
 
   @override
   void initState(){
@@ -85,16 +84,6 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                       );
                     }
-                    else if(index == 2){
-                      _controller.reverse();
-                      Navigator.of(context).push(
-                        new PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => new PortfolioPage(),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-                          new FadeTransition(opacity: animation, child: child),
-                        ),
-                      );
-                    }
                   },
                 ),
             ),
@@ -106,7 +95,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 animation: _controller,
                 builder: (BuildContext context, Widget child){
                   return new Transform(
-                    transform: new Matrix4.rotationZ(_controller.value * 0.5 * Math.PI),
+                    transform: new Matrix4.rotationZ(_controller.value * 0.5 * Math.pi),
                     alignment: FractionalOffset.center,
                     child: new Icon(_controller.isDismissed ? Icons.add : Icons.close)
                   );

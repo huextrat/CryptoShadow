@@ -25,7 +25,7 @@ class SettingsPageState extends State<SettingsPage> {
   }
 
   void shareThisApp() {
-    share("#CryptoShadow is a new cryptocurrency tracker built with @flutterio : https://play.google.com/store/apps/details?id=com.huextrat.cryptoshadow");
+    Share.share("#CryptoShadow is a new cryptocurrency tracker built with @flutterio : https://play.google.com/store/apps/details?id=com.huextrat.cryptoshadow");
   }
 
   @override
@@ -67,7 +67,7 @@ class SettingsPageState extends State<SettingsPage> {
                 children: <Widget>[
                   new Container(
                     padding: new EdgeInsets.fromLTRB(150.0, 10.0, 150.0, 10.0),
-                    child: new Text("Version: 2.0.2",),
+                    child: new Text("Version: 2.1",),
                   ),
                   new Separator(),
                 ],
