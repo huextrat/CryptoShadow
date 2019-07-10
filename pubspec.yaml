@@ -17,6 +17,7 @@ dependencies:
   launch_review:
   cupertino_icons:
   onesignal:
+  http:
 
 dev_dependencies:
   flutter_test:
